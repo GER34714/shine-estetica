@@ -34,6 +34,7 @@
       --radius-lg:24px;
       --radius-md:18px;
       --max:1200px;
+      --footer-name:#c27f8d;
     }
 
     body.dark{
@@ -47,12 +48,14 @@
       --primary:#c8a897;
       --primary-strong:#e0c0ad;
       --shadow:0 14px 34px rgba(0,0,0,.26);
+      --footer-name:#f0a7bb;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
+      min-height:100vh;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
       line-height:1.55;
@@ -65,6 +68,16 @@
     a{text-decoration:none;color:inherit}
     button{font:inherit}
     .container{width:min(calc(100% - 32px), var(--max));margin-inline:auto}
+
+    .site{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    main{
+      flex:1;
+    }
 
     .topbar{
       position:sticky;
@@ -494,7 +507,7 @@
 
     .gallery-grid{
       display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:14px;
     }
 
@@ -692,7 +705,10 @@
       max-width:60ch;
     }
 
-    footer{padding:0 0 124px}
+    footer{
+      margin-top:auto;
+      padding:0 0 124px;
+    }
 
     .footer-box{
       border-top:1px solid var(--line);
@@ -707,6 +723,10 @@
     }
 
     .footer-box a{color:inherit}
+    .footer-box .brand-name{
+      color:var(--footer-name);
+      font-weight:700;
+    }
 
     .floating-socials{
       position:fixed;
@@ -844,436 +864,428 @@
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#inicio" class="brand" aria-label="Ir al inicio">
-        <img src="https://iili.io/qfs16T7.jpg" alt="Logo de Shine Estética" />
-        <div class="brand-text">
-          <strong>Shine Estética</strong>
-          <span>Faciales, corporales, uñas, masajes y depilación</span>
-        </div>
-      </a>
-
-      <div class="nav-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#reseñas">Reseñas</a>
-        <a href="#contacto">Contacto</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">Modo oscuro</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
-        <div class="hero-copy panel">
-          <div class="eyebrow">Espacio de bienestar y belleza en Córdoba</div>
-          <h1>Un lugar para consentirte y verte radiante</h1>
-          <p>
-            En <strong>Shine Estética</strong> encontrás tratamientos pensados para realzar tu belleza, cuidar tu piel
-            y regalarte un momento para vos. Faciales, corporales, uñas, depilación y más, en un ambiente cálido y profesional.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">Instagram oficial</a>
-            <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+  <div class="site">
+    <header class="topbar">
+      <div class="container nav">
+        <a href="#inicio" class="brand" aria-label="Ir al inicio">
+          <img src="https://iili.io/qfs16T7.jpg" alt="Logo de Shine Estética" />
+          <div class="brand-text">
+            <strong>Shine Estética</strong>
+            <span>Faciales, corporales, uñas, masajes y depilación</span>
           </div>
+        </a>
 
-          <div class="hero-badges">
-            <div class="badge">
-              <strong>Atención personalizada</strong>
-              <span>Cada servicio se adapta a tu necesidad y objetivo.</span>
-            </div>
-            <div class="badge">
-              <strong>Espacio cálido</strong>
-              <span>Una experiencia cómoda, prolija y pensada para relajarte.</span>
-            </div>
-            <div class="badge">
-              <strong>Resultados visibles</strong>
-              <span>Tratamientos enfocados en bienestar y mejora estética real.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-card panel">
-          <img src="https://iili.io/qfs16T7.jpg" alt="Imagen principal de Shine Estética" />
-          <div class="hero-float">
-            <strong>Faciales, corporales y belleza integral</strong>
-            <span>Uñas, cejas, pestañas, masajes y depilación en un solo lugar.</span>
-          </div>
+        <div class="nav-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#reseñas">Reseñas</a>
+          <a href="#contacto">Contacto</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">Modo oscuro</button>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section id="servicios">
-      <div class="container">
-        <div class="section-head">
-          <div><h2>Servicios principales</h2></div>
-          <p>
-            Una selección de tratamientos ideales para cuidar tu piel, tu cuerpo y tu imagen,
-            combinando estética, relajación y atención profesional.
-          </p>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card panel">
-            <div class="service-media">
-              <img src="https://iili.io/qfsji11.jpg" alt="Limpieza facial profunda" />
-            </div>
-            <div class="service-content">
-              <h3>Limpieza facial profunda</h3>
-              <p>Ayuda a remover impurezas, mejorar la textura de la piel y devolverle luminosidad.</p>
-              <details class="service-details">
-                <summary>Ver descripción del servicio</summary>
-                <div class="detail-body">
-                  <p>
-                    Ideal para mantener el rostro fresco, limpio y cuidado. Este servicio ayuda a desobstruir poros,
-                    retirar células muertas y mejorar el aspecto general de la piel, dejando una sensación de limpieza
-                    profunda y mayor suavidad.
-                  </p>
-                </div>
-              </details>
-            </div>
-          </article>
-
-          <article class="service-card panel">
-            <div class="service-media">
-              <img src="https://iili.io/qfsjrXV.jpg" alt="Tratamientos faciales" />
-            </div>
-            <div class="service-content">
-              <h3>Tratamientos faciales</h3>
-              <p>Pensados para hidratar, revitalizar y mejorar el aspecto general del rostro.</p>
-              <details class="service-details">
-                <summary>Ver descripción del servicio</summary>
-                <div class="detail-body">
-                  <p>
-                    Un servicio perfecto para realzar tu belleza natural. Según la necesidad de tu piel, pueden enfocarse
-                    en hidratación, nutrición, luminosidad y revitalización, ayudando a que el rostro se vea más parejo,
-                    descansado y cuidado.
-                  </p>
-                </div>
-              </details>
-            </div>
-          </article>
-
-          <article class="service-card panel">
-            <div class="service-media">
-              <img src="https://iili.io/qfL23p1.jpg" alt="Masajes corporales" />
-            </div>
-            <div class="service-content">
-              <h3>Masajes corporales</h3>
-              <p>Favorecen la relajación, alivian tensiones y brindan una experiencia de bienestar.</p>
-              <details class="service-details">
-                <summary>Ver descripción del servicio</summary>
-                <div class="detail-body">
-                  <p>
-                    Son ideales para desconectar del ritmo diario, reducir molestias generadas por tensión y regalarte
-                    un momento de descanso real. Además del bienestar físico, ayudan a bajar un cambio y sentirte mejor
-                    con vos misma.
-                  </p>
-                </div>
-              </details>
-            </div>
-          </article>
-
-          <article class="service-card panel">
-            <div class="service-media">
-              <img src="https://iili.io/qfsj4LB.jpg" alt="Uñas, cejas y pestañas" />
-            </div>
-            <div class="service-content">
-              <h3>Uñas, cejas y pestañas</h3>
-              <p>Servicios ideales para completar tu look con detalles que marcan la diferencia.</p>
-              <details class="service-details">
-                <summary>Ver descripción del servicio</summary>
-                <div class="detail-body">
-                  <p>
-                    Pensados para resaltar tu imagen con prolijidad y estilo. Ya sea para lucir manos cuidadas,
-                    una mirada más definida o un acabado más armónico en tu rostro, son detalles que elevan tu
-                    presencia y acompañan tu estética diaria.
-                  </p>
-                </div>
-              </details>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="beneficios">
-      <div class="container">
-        <div class="section-head">
-          <div><h2>Beneficios de elegir Shine</h2></div>
-          <p>
-            Más que un turno, vivís una experiencia de cuidado personal orientada a que te sientas bien,
-            te veas mejor y disfrutes de un momento para vos.
-          </p>
-        </div>
-
-        <div class="benefits-wrap">
-          <div class="benefit-box panel">
-            <div class="benefit-grid">
-              <article class="benefit-card panel">
-                <div class="benefit-media">
-                  <img src="https://iili.io/qfsOhsp.jpg" alt="Relajación y bienestar" />
-                </div>
-                <div class="benefit-content">
-                  <h3>Relajación y bienestar</h3>
-                  <p>Un espacio pensado para bajar un cambio, relajarte y dedicarte tiempo de calidad.</p>
-                </div>
-              </article>
-
-              <article class="benefit-card panel">
-                <div class="benefit-media">
-                  <img src="https://iili.io/qfsOXXR.jpg" alt="Cuidado visible de la piel" />
-                </div>
-                <div class="benefit-content">
-                  <h3>Cuidado visible de la piel</h3>
-                  <p>Tratamientos que ayudan a mejorar la textura, luminosidad y aspecto general del rostro.</p>
-                </div>
-              </article>
-
-              <article class="benefit-card panel">
-                <div class="benefit-media">
-                  <img src="https://iili.io/qfsOwqN.jpg" alt="Imagen más cuidada" />
-                </div>
-                <div class="benefit-content">
-                  <h3>Imagen más cuidada</h3>
-                  <p>Detalles estéticos que realzan tu presencia y potencian tu seguridad personal.</p>
-                </div>
-              </article>
-
-              <article class="benefit-card panel">
-                <div class="benefit-media">
-                  <img src="https://iili.io/qfsjrXV.jpg" alt="Atención personalizada" />
-                </div>
-                <div class="benefit-content">
-                  <h3>Atención personalizada</h3>
-                  <p>Cada servicio se realiza con dedicación, observando lo que necesitás en cada visita.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div class="benefit-box panel">
-            <div class="info-list">
-              <div class="info-item">
-                <i>01</i>
-                <div>
-                  <strong>Ambiente cálido y delicado</strong>
-                  <p style="margin:6px 0 0;color:var(--muted)">Un espacio cómodo, agradable y pensado para que te sientas a gusto desde que llegás.</p>
-                </div>
-              </div>
-
-              <div class="info-item">
-                <i>02</i>
-                <div>
-                  <strong>Variedad de servicios en un solo lugar</strong>
-                  <p style="margin:6px 0 0;color:var(--muted)">Faciales, corporales, uñas, depilación, cejas, pestañas y masajes para cubrir distintas necesidades.</p>
-                </div>
-              </div>
-
-              <div class="info-item">
-                <i>03</i>
-                <div>
-                  <strong>Momento para vos</strong>
-                  <p style="margin:6px 0 0;color:var(--muted)">Ideal para cortar con la rutina y regalarte una pausa de autocuidado que también se nota por fuera.</p>
-                </div>
-              </div>
-
-              <div class="info-item">
-                <i>04</i>
-                <div>
-                  <strong>Ubicación en Córdoba</strong>
-                  <p style="margin:6px 0 0;color:var(--muted)">Atención en Av Colón 5560, Córdoba, Argentina, para que puedas reservar y acercarte fácilmente.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="resultados">
-      <div class="container">
-        <div class="section-head">
-          <div><h2>Antes y después</h2></div>
-          <p>
-            Resultados que reflejan cuidado, constancia y dedicación en cada tratamiento.
-            Una muestra del cambio que puede lograrse con el servicio adecuado.
-          </p>
-        </div>
-
-        <div class="gallery-grid">
-          <article class="gallery-card panel">
-            <div class="gallery-media">
-              <img src="https://iili.io/qfsexBp.jpg" alt="Antes y después de tratamiento facial 1" />
-            </div>
-            <div class="gallery-content">
-              <strong>Mejora en textura y luminosidad</strong>
-              <p>Se aprecia una piel con mejor aspecto visual y una terminación más cuidada.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card panel">
-            <div class="gallery-media">
-              <img src="https://iili.io/qfsebat.jpg" alt="Antes y después de tratamiento facial 2" />
-            </div>
-            <div class="gallery-content">
-              <strong>Rostro más uniforme y cuidado</strong>
-              <p>Resultado enfocado en realzar la apariencia general sin tapar zonas importantes de la imagen.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card panel">
-            <div class="gallery-media">
-              <img src="https://iili.io/qfsezEN.jpg" alt="Antes y después de tratamiento facial 3" />
-            </div>
-            <div class="gallery-content">
-              <strong>Cambios visibles con seguimiento</strong>
-              <p>La constancia y el tratamiento adecuado ayudan a lograr mejoras progresivas y notorias.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card panel">
-            <div class="gallery-media">
-              <img src="https://iili.io/qfsOwqN.jpg" alt="Antes y después de tratamiento estético 4" />
-            </div>
-            <div class="gallery-content">
-              <strong>Resultados que acompañan tu bienestar</strong>
-              <p>Una imagen más cuidada también se traduce en mayor seguridad y bienestar personal.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="reseñas">
-      <div class="container">
-        <div class="section-head">
-          <div><h2>Reseñas reales</h2></div>
-          <p>
-            Comentarios simples y naturales de personas que pasaron por el espacio y valoraron la atención, la calidez y el cuidado en cada detalle.
-          </p>
-        </div>
-
-        <div class="reviews-grid">
-          <article class="review-card panel">
-            <div class="review-avatar">
-              <img src="https://iili.io/qfLOAZv.png" alt="Reseña de clienta 1" />
-            </div>
-            <h3>Muy linda experiencia</h3>
-            <p>Me sentí cómoda desde el primer momento. El lugar es cálido, me explicaron todo con tranquilidad y me fui contenta con el resultado.</p>
-            <small>Reseña natural de clienta</small>
-          </article>
-
-          <article class="review-card panel">
-            <div class="review-avatar">
-              <img src="https://iili.io/qfLSeTX.png" alt="Reseña de clienta 2" />
-            </div>
-            <h3>Atención prolija y amable</h3>
-            <p>Se nota la dedicación en el trabajo. Me gustó que se tomaran el tiempo y que todo fuera muy cuidado, sin apuro y con buena onda.</p>
-            <small>Reseña natural de clienta</small>
-          </article>
-
-          <article class="review-card panel">
-            <div class="review-avatar">
-              <img src="https://iili.io/qfLOSwb.png" alt="Reseña de clienta 3" />
-            </div>
-            <h3>Volvería sin dudas</h3>
-            <p>Fui por recomendación y la verdad la pasé muy bien. Me gustó tanto la atención como el ambiente, y eso también suma muchísimo.</p>
-            <small>Reseña natural de clienta</small>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="ubicacion">
-      <div class="container">
-        <div class="location-grid">
-          <div class="location-copy">
-            <h2>Cómo llegar</h2>
+    <main>
+      <section class="hero" id="inicio">
+        <div class="container hero-grid">
+          <div class="hero-copy panel">
+            <div class="eyebrow">Espacio de bienestar y belleza en Córdoba</div>
+            <h1>Un lugar para consentirte y verte radiante</h1>
             <p>
-              Estamos en Córdoba. Podés ver la ubicación rápida en el mapa y abrirla directamente en Google Maps.
+              En <strong>Shine Estética</strong> encontrás tratamientos pensados para realzar tu belleza, cuidar tu piel
+              y regalarte un momento para vos. Faciales, corporales, uñas, depilación y más, en un ambiente cálido y profesional.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">Instagram oficial</a>
+              <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+            </div>
+
+            <div class="hero-badges">
+              <div class="badge">
+                <strong>Atención personalizada</strong>
+                <span>Cada servicio se adapta a tu necesidad y objetivo.</span>
+              </div>
+              <div class="badge">
+                <strong>Espacio cálido</strong>
+                <span>Una experiencia cómoda, prolija y pensada para relajarte.</span>
+              </div>
+              <div class="badge">
+                <strong>Resultados visibles</strong>
+                <span>Tratamientos enfocados en bienestar y mejora estética real.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card panel">
+            <img src="https://iili.io/qfs16T7.jpg" alt="Imagen principal de Shine Estética" />
+            <div class="hero-float">
+              <strong>Faciales, corporales y belleza integral</strong>
+              <span>Uñas, cejas, pestañas, masajes y depilación en un solo lugar.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios">
+        <div class="container">
+          <div class="section-head">
+            <div><h2>Servicios principales</h2></div>
+            <p>
+              Una selección de tratamientos ideales para cuidar tu piel, tu cuerpo y tu imagen,
+              combinando estética, relajación y atención profesional.
             </p>
           </div>
 
-          <div class="location-side">
-            <div class="map-frame">
-              <iframe
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Av+Colon+5560+Cordoba+Argentina+5000&z=15&output=embed"
-                title="Mapa de ubicación de Shine Estética"
-              ></iframe>
-            </div>
-
-            <div class="map-card panel">
-              <div class="map-card-text">
-                <h3>Shine Estética</h3>
-                <p>Av Colón 5560, Córdoba, Argentina</p>
+          <div class="services-grid">
+            <article class="service-card panel">
+              <div class="service-media">
+                <img src="https://iili.io/qfsji11.jpg" alt="Limpieza facial profunda" />
               </div>
-              <a class="mini-map-btn" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
+              <div class="service-content">
+                <h3>Limpieza facial profunda</h3>
+                <p>Ayuda a remover impurezas, mejorar la textura de la piel y devolverle luminosidad.</p>
+                <details class="service-details">
+                  <summary>Ver descripción del servicio</summary>
+                  <div class="detail-body">
+                    <p>
+                      Ideal para mantener el rostro fresco, limpio y cuidado. Este servicio ayuda a desobstruir poros,
+                      retirar células muertas y mejorar el aspecto general de la piel, dejando una sensación de limpieza
+                      profunda y mayor suavidad.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </article>
+
+            <article class="service-card panel">
+              <div class="service-media">
+                <img src="https://iili.io/qfsjrXV.jpg" alt="Tratamientos faciales" />
+              </div>
+              <div class="service-content">
+                <h3>Tratamientos faciales</h3>
+                <p>Pensados para hidratar, revitalizar y mejorar el aspecto general del rostro.</p>
+                <details class="service-details">
+                  <summary>Ver descripción del servicio</summary>
+                  <div class="detail-body">
+                    <p>
+                      Un servicio perfecto para realzar tu belleza natural. Según la necesidad de tu piel, pueden enfocarse
+                      en hidratación, nutrición, luminosidad y revitalización, ayudando a que el rostro se vea más parejo,
+                      descansado y cuidado.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </article>
+
+            <article class="service-card panel">
+              <div class="service-media">
+                <img src="https://iili.io/qfL23p1.jpg" alt="Masajes corporales" />
+              </div>
+              <div class="service-content">
+                <h3>Masajes corporales</h3>
+                <p>Favorecen la relajación, alivian tensiones y brindan una experiencia de bienestar.</p>
+                <details class="service-details">
+                  <summary>Ver descripción del servicio</summary>
+                  <div class="detail-body">
+                    <p>
+                      Son ideales para desconectar del ritmo diario, reducir molestias generadas por tensión y regalarte
+                      un momento de descanso real. Además del bienestar físico, ayudan a bajar un cambio y sentirte mejor
+                      con vos misma.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </article>
+
+            <article class="service-card panel">
+              <div class="service-media">
+                <img src="https://iili.io/qfsj4LB.jpg" alt="Uñas, cejas y pestañas" />
+              </div>
+              <div class="service-content">
+                <h3>Uñas, cejas y pestañas</h3>
+                <p>Servicios ideales para completar tu look con detalles que marcan la diferencia.</p>
+                <details class="service-details">
+                  <summary>Ver descripción del servicio</summary>
+                  <div class="detail-body">
+                    <p>
+                      Pensados para resaltar tu imagen con prolijidad y estilo. Ya sea para lucir manos cuidadas,
+                      una mirada más definida o un acabado más armónico en tu rostro, son detalles que elevan tu
+                      presencia y acompañan tu estética diaria.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="beneficios">
+        <div class="container">
+          <div class="section-head">
+            <div><h2>Beneficios de elegir Shine</h2></div>
+            <p>
+              Más que un turno, vivís una experiencia de cuidado personal orientada a que te sientas bien,
+              te veas mejor y disfrutes de un momento para vos.
+            </p>
+          </div>
+
+          <div class="benefits-wrap">
+            <div class="benefit-box panel">
+              <div class="benefit-grid">
+                <article class="benefit-card panel">
+                  <div class="benefit-media">
+                    <img src="https://iili.io/qfsOhsp.jpg" alt="Relajación y bienestar" />
+                  </div>
+                  <div class="benefit-content">
+                    <h3>Relajación y bienestar</h3>
+                    <p>Un espacio pensado para bajar un cambio, relajarte y dedicarte tiempo de calidad.</p>
+                  </div>
+                </article>
+
+                <article class="benefit-card panel">
+                  <div class="benefit-media">
+                    <img src="https://iili.io/qfsOXXR.jpg" alt="Cuidado visible de la piel" />
+                  </div>
+                  <div class="benefit-content">
+                    <h3>Cuidado visible de la piel</h3>
+                    <p>Tratamientos que ayudan a mejorar la textura, luminosidad y aspecto general del rostro.</p>
+                  </div>
+                </article>
+
+                <article class="benefit-card panel">
+                  <div class="benefit-media">
+                    <img src="https://iili.io/qfsOwqN.jpg" alt="Imagen más cuidada" />
+                  </div>
+                  <div class="benefit-content">
+                    <h3>Imagen más cuidada</h3>
+                    <p>Detalles estéticos que realzan tu presencia y potencian tu seguridad personal.</p>
+                  </div>
+                </article>
+
+                <article class="benefit-card panel">
+                  <div class="benefit-media">
+                    <img src="https://iili.io/qfsjrXV.jpg" alt="Atención personalizada" />
+                  </div>
+                  <div class="benefit-content">
+                    <h3>Atención personalizada</h3>
+                    <p>Cada servicio se realiza con dedicación, observando lo que necesitás en cada visita.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="benefit-box panel">
+              <div class="info-list">
+                <div class="info-item">
+                  <i>01</i>
+                  <div>
+                    <strong>Ambiente cálido y delicado</strong>
+                    <p style="margin:6px 0 0;color:var(--muted)">Un espacio cómodo, agradable y pensado para que te sientas a gusto desde que llegás.</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <i>02</i>
+                  <div>
+                    <strong>Variedad de servicios en un solo lugar</strong>
+                    <p style="margin:6px 0 0;color:var(--muted)">Faciales, corporales, uñas, depilación, cejas, pestañas y masajes para cubrir distintas necesidades.</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <i>03</i>
+                  <div>
+                    <strong>Momento para vos</strong>
+                    <p style="margin:6px 0 0;color:var(--muted)">Ideal para cortar con la rutina y regalarte una pausa de autocuidado que también se nota por fuera.</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <i>04</i>
+                  <div>
+                    <strong>Ubicación en Córdoba</strong>
+                    <p style="margin:6px 0 0;color:var(--muted)">Atención en Av Colón 5560, Córdoba, Argentina, para que puedas reservar y acercarte fácilmente.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="cta" id="contacto">
-      <div class="container">
-        <div class="cta-box panel">
-          <h2>Reservá tu turno y regalate un momento para vos</h2>
-          <p>
-            Si querés consultar por tratamientos, disponibilidad o recibir más información,
-            escribinos y coordinamos tu atención de forma simple y rápida.
-          </p>
+      <section id="resultados">
+        <div class="container">
+          <div class="section-head">
+            <div><h2>Antes y después</h2></div>
+            <p>
+              Resultados que reflejan cuidado, constancia y dedicación en cada tratamiento.
+              Una muestra del cambio que puede lograrse con el servicio adecuado.
+            </p>
+          </div>
 
-          <div class="hero-actions" style="margin-bottom:0">
-            <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">Escribir por Instagram</a>
-            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
+          <div class="gallery-grid">
+            <article class="gallery-card panel">
+              <div class="gallery-media">
+                <img src="https://iili.io/qfsexBp.jpg" alt="Antes y después de tratamiento facial 1" />
+              </div>
+              <div class="gallery-content">
+                <strong>Mejora en textura y luminosidad</strong>
+                <p>Se aprecia una piel con mejor aspecto visual y una terminación más cuidada.</p>
+              </div>
+            </article>
+
+            <article class="gallery-card panel">
+              <div class="gallery-media">
+                <img src="https://iili.io/qfsebat.jpg" alt="Antes y después de tratamiento facial 2" />
+              </div>
+              <div class="gallery-content">
+                <strong>Rostro más uniforme y cuidado</strong>
+                <p>Resultado enfocado en realzar la apariencia general sin tapar zonas importantes de la imagen.</p>
+              </div>
+            </article>
+
+            <article class="gallery-card panel">
+              <div class="gallery-media">
+                <img src="https://iili.io/qfsezEN.jpg" alt="Antes y después de tratamiento facial 3" />
+              </div>
+              <div class="gallery-content">
+                <strong>Cambios visibles con seguimiento</strong>
+                <p>La constancia y el tratamiento adecuado ayudan a lograr mejoras progresivas y notorias.</p>
+              </div>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer>
-    <div class="container footer-box">
-      <div>
-        © <span id="year"></span> Shine Estética. Todos los derechos reservados.
+      <section id="reseñas">
+        <div class="container">
+          <div class="section-head">
+            <div><h2>Reseñas reales</h2></div>
+            <p>
+              Comentarios simples y naturales de personas que pasaron por el espacio y valoraron la atención, la calidez y el cuidado en cada detalle.
+            </p>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-card panel">
+              <div class="review-avatar">
+                <img src="https://iili.io/qfLOAZv.png" alt="Reseña de clienta 1" />
+              </div>
+              <h3>Muy linda experiencia</h3>
+              <p>Me sentí cómoda desde el primer momento. El lugar es cálido, me explicaron todo con tranquilidad y me fui contenta con el resultado.</p>
+              <small>Reseña natural de clienta</small>
+            </article>
+
+            <article class="review-card panel">
+              <div class="review-avatar">
+                <img src="https://iili.io/qfLSeTX.png" alt="Reseña de clienta 2" />
+              </div>
+              <h3>Atención prolija y amable</h3>
+              <p>Se nota la dedicación en el trabajo. Me gustó que se tomaran el tiempo y que todo fuera muy cuidado, sin apuro y con buena onda.</p>
+              <small>Reseña natural de clienta</small>
+            </article>
+
+            <article class="review-card panel">
+              <div class="review-avatar">
+                <img src="https://iili.io/qfLOSwb.png" alt="Reseña de clienta 3" />
+              </div>
+              <h3>Volvería sin dudas</h3>
+              <p>Fui por recomendación y la verdad la pasé muy bien. Me gustó tanto la atención como el ambiente, y eso también suma muchísimo.</p>
+              <small>Reseña natural de clienta</small>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ubicacion">
+        <div class="container">
+          <div class="location-grid">
+            <div class="location-copy">
+              <h2>Cómo llegar</h2>
+              <p>
+                Estamos en Córdoba. Podés ver la ubicación rápida en el mapa y abrirla directamente en Google Maps.
+              </p>
+            </div>
+
+            <div class="location-side">
+              <div class="map-frame">
+                <iframe
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps?q=Av+Colon+5560+Cordoba+Argentina+5000&z=15&output=embed"
+                  title="Mapa de ubicación de Shine Estética"
+                ></iframe>
+              </div>
+
+              <div class="map-card panel">
+                <div class="map-card-text">
+                  <h3>Shine Estética</h3>
+                  <p>Av Colón 5560, Córdoba, Argentina</p>
+                </div>
+                <a class="mini-map-btn" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="contacto">
+        <div class="container">
+          <div class="cta-box panel">
+            <h2>Reservá tu turno y regalate un momento para vos</h2>
+            <p>
+              Si querés consultar por tratamientos, disponibilidad o recibir más información,
+              escribinos y coordinamos tu atención de forma simple y rápida.
+            </p>
+
+            <div class="hero-actions" style="margin-bottom:0">
+              <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">Escribir por Instagram</a>
+              <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-box">
+        <div>
+          © <span id="year"></span> Shine Estética. Todos los derechos reservados.
+        </div>
+        <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer">Creado y diseñado por <span class="brand-name">Ciborg 347</span></a>
       </div>
-      <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer">Creado y diseñado por Ciborg 347</a>
+    </footer>
+
+    <div class="floating-socials">
+      <a
+        class="float-btn instagram-float"
+        href="https://www.instagram.com/espacioshineestetica/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zm8.9 1.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/>
+        </svg>
+      </a>
+
+      <a
+        class="float-btn whatsapp-float"
+        href="https://wa.me/5490000000000?text=Hola%20Shine%20Estetica,%20quiero%20consultar%20por%20un%20turno."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="WhatsApp"
+        title="WhatsApp"
+      >
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 8.02.001a7.94 7.94 0 0 0-6.783 12.06L0 16l4.09-1.204A7.95 7.95 0 0 0 8.02 16h.003a7.94 7.94 0 0 0 5.578-13.674zM8.023 14.64a6.6 6.6 0 0 1-3.364-.92l-.241-.142-2.427.715.728-2.365-.157-.243a6.58 6.58 0 0 1-1.017-3.51c.003-3.633 2.96-6.59 6.594-6.59a6.55 6.55 0 0 1 4.664 1.932 6.55 6.55 0 0 1 1.93 4.666c-.002 3.634-2.96 6.592-6.59 6.592zm3.615-4.936c-.198-.1-1.17-.578-1.352-.643-.181-.066-.313-.1-.445.099-.132.198-.511.643-.626.775-.115.132-.231.149-.429.05-.198-.1-.836-.308-1.592-.982-.588-.524-.985-1.172-1.1-1.37-.116-.198-.012-.305.087-.404.09-.09.198-.231.297-.347.099-.116.132-.198.198-.33.066-.132.033-.248-.017-.347-.05-.1-.445-1.074-.61-1.47-.16-.385-.323-.332-.445-.338l-.379-.006a.727.727 0 0 0-.528.247c-.182.198-.693.677-.693 1.65 0 .974.71 1.914.809 2.046.1.132 1.397 2.134 3.385 2.992.473.204.842.326 1.13.417.475.151.907.13 1.248.079.38-.057 1.17-.478 1.336-.94.165-.462.165-.858.115-.94-.05-.083-.181-.132-.379-.231z"/>
+        </svg>
+      </a>
     </div>
-  </footer>
-
-  <div class="floating-socials">
-    <a
-      class="float-btn instagram-float"
-      href="https://www.instagram.com/espacioshineestetica/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram"
-      title="Instagram"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zm8.9 1.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/>
-      </svg>
-    </a>
-
-    <a
-      class="float-btn whatsapp-float"
-      href="https://wa.me/5490000000000?text=Hola%20Shine%20Estetica,%20quiero%20consultar%20por%20un%20turno."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="WhatsApp"
-      title="WhatsApp"
-    >
-      <svg viewBox="0 0 16 16" aria-hidden="true">
-        <path d="M13.601 2.326A7.854 7.854 0 0 0 8.02.001a7.94 7.94 0 0 0-6.783 12.06L0 16l4.09-1.204A7.95 7.95 0 0 0 8.02 16h.003a7.94 7.94 0 0 0 5.578-13.674zM8.023 14.64a6.6 6.6 0 0 1-3.364-.92l-.241-.142-2.427.715.728-2.365-.157-.243a6.58 6.58 0 0 1-1.017-3.51c.003-3.633 2.96-6.59 6.594-6.59a6.55 6.55 0 0 1 4.664 1.932 6.55 6.55 0 0 1 1.93 4.666c-.002 3.634-2.96 6.592-6.59 6.592zm3.615-4.936c-.198-.1-1.17-.578-1.352-.643-.181-.066-.313-.1-.445.099-.132.198-.511.643-.626.775-.115.132-.231.149-.429.05-.198-.1-.836-.308-1.592-.982-.588-.524-.985-1.172-1.1-1.37-.116-.198-.012-.305.087-.404.09-.09.198-.231.297-.347.099-.116.132-.198.198-.33.066-.132.033-.248-.017-.347-.05-.1-.445-1.074-.61-1.47-.16-.385-.323-.332-.445-.338l-.379-.006a.727.727 0 0 0-.528.247c-.182.198-.693.677-.693 1.65 0 .974.71 1.914.809 2.046.1.132 1.397 2.134 3.385 2.992.473.204.842.326 1.13.417.475.151.907.13 1.248.079.38-.057 1.17-.478 1.336-.94.165-.462.165-.858.115-.94-.05-.083-.181-.132-.379-.231z"/>
-      </svg>
-    </a>
   </div>
 
   <script>
