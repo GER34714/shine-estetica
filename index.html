@@ -21,16 +21,15 @@
   <style>
     :root{
       --bg:#f6f0eb;
-      --panel:rgba(255,250,247,.88);
-      --panel-strong:rgba(255,250,247,.96);
-      --soft:#efe3da;
+      --bg-soft:#efe3da;
+      --panel:#fffaf7;
+      --panel-2:#f4ebe4;
       --text:#4c3d36;
       --muted:#7b6a61;
       --line:rgba(88,70,61,.12);
       --primary:#c8aa98;
       --primary-strong:#b8907a;
-      --white:#fff;
-      --shadow:0 12px 34px rgba(80,59,47,.12);
+      --shadow:0 12px 34px rgba(80,59,47,.10);
       --radius-xl:30px;
       --radius-lg:24px;
       --radius-md:18px;
@@ -39,15 +38,15 @@
 
     body.dark{
       --bg:#1d1714;
-      --panel:rgba(40,31,27,.82);
-      --panel-strong:rgba(44,35,30,.92);
-      --soft:#332823;
+      --bg-soft:#2f241f;
+      --panel:#2a211d;
+      --panel-2:#332823;
       --text:#f2e7df;
       --muted:#ccb8ad;
-      --line:rgba(255,255,255,.09);
+      --line:rgba(255,255,255,.08);
       --primary:#c8a897;
       --primary-strong:#e0c0ad;
-      --shadow:0 14px 34px rgba(0,0,0,.30);
+      --shadow:0 14px 34px rgba(0,0,0,.26);
     }
 
     *{box-sizing:border-box}
@@ -58,12 +57,7 @@
       color:var(--text);
       line-height:1.55;
       overflow-x:hidden;
-      background-color:var(--bg);
-      background-image:url("https://iili.io/qfLNJXR.jpg");
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      background-attachment:fixed;
+      background:var(--bg);
       transition:background-color .25s ease,color .25s ease;
     }
 
@@ -77,7 +71,7 @@
       top:0;
       z-index:40;
       backdrop-filter:blur(12px);
-      background:color-mix(in srgb, var(--panel-strong) 88%, transparent);
+      background:color-mix(in srgb, var(--panel) 92%, transparent);
       border-bottom:1px solid var(--line);
     }
 
@@ -131,7 +125,7 @@
     .nav-links a,
     .theme-toggle{
       border:1px solid var(--line);
-      background:var(--panel-strong);
+      background:var(--panel);
       color:var(--text);
       padding:10px 14px;
       border-radius:999px;
@@ -157,9 +151,8 @@
       align-items:center;
     }
 
-    .glass{
+    .panel{
       background:var(--panel);
-      backdrop-filter:blur(12px);
       border:1px solid var(--line);
       box-shadow:var(--shadow);
     }
@@ -175,7 +168,7 @@
       gap:8px;
       padding:8px 14px;
       border-radius:999px;
-      background:var(--soft);
+      background:var(--bg-soft);
       color:var(--muted);
       border:1px solid var(--line);
       font-size:.9rem;
@@ -220,11 +213,11 @@
     .btn-primary{
       background:linear-gradient(135deg,var(--primary-strong),var(--primary));
       color:#fff;
-      box-shadow:0 10px 24px rgba(182,147,127,.28);
+      box-shadow:0 10px 24px rgba(182,147,127,.24);
     }
 
     .btn-secondary{
-      background:var(--panel-strong);
+      background:var(--panel);
       border-color:var(--line);
       color:var(--text);
     }
@@ -232,7 +225,7 @@
     .btn-instagram{
       background:linear-gradient(135deg,#f58529,#dd2a7b 45%,#8134af 78%,#515bd4);
       color:#fff;
-      box-shadow:0 10px 24px rgba(221,42,123,.22);
+      box-shadow:0 10px 24px rgba(221,42,123,.18);
     }
 
     .hero-badges{
@@ -242,7 +235,7 @@
     }
 
     .badge{
-      background:var(--panel-strong);
+      background:var(--panel);
       border:1px solid var(--line);
       border-radius:20px;
       padding:14px;
@@ -287,10 +280,9 @@
       bottom:20px;
       padding:16px 18px;
       border-radius:22px;
-      background:color-mix(in srgb, var(--panel-strong) 92%, transparent);
+      background:var(--panel);
       border:1px solid var(--line);
       box-shadow:var(--shadow);
-      backdrop-filter:blur(10px);
     }
 
     .hero-float strong{
@@ -350,7 +342,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(180deg,color-mix(in srgb,var(--soft) 72%,#fff),color-mix(in srgb,var(--panel-strong) 85%,transparent));
+      background:linear-gradient(180deg,var(--bg-soft),var(--panel-2));
       border-bottom:1px solid var(--line);
       overflow:hidden;
     }
@@ -409,7 +401,7 @@
       display:grid;
       place-items:center;
       border:1px solid var(--line);
-      background:var(--soft);
+      background:var(--bg-soft);
       flex:0 0 28px;
     }
 
@@ -447,7 +439,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(180deg,color-mix(in srgb,var(--soft) 72%,#fff),color-mix(in srgb,var(--panel-strong) 85%,transparent));
+      background:linear-gradient(180deg,var(--bg-soft),var(--panel-2));
       border-bottom:1px solid var(--line);
     }
 
@@ -483,7 +475,7 @@
       display:flex;
       gap:12px;
       align-items:flex-start;
-      background:var(--panel-strong);
+      background:var(--panel);
       border:1px solid var(--line);
       border-radius:18px;
       padding:14px;
@@ -496,7 +488,7 @@
       display:grid;
       place-items:center;
       border-radius:50%;
-      background:var(--soft);
+      background:var(--bg-soft);
       font-style:normal;
     }
 
@@ -520,7 +512,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(180deg,color-mix(in srgb,var(--soft) 72%,#fff),color-mix(in srgb,var(--panel-strong) 85%,transparent));
+      background:linear-gradient(180deg,var(--bg-soft),var(--panel-2));
       border-bottom:1px solid var(--line);
     }
 
@@ -556,23 +548,23 @@
 
     .review-card{
       border-radius:26px;
-      padding:22px;
+      padding:22px 18px;
       text-align:center;
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:14px;
+      gap:12px;
       min-height:100%;
     }
 
     .review-avatar{
-      width:120px;
-      height:120px;
+      width:110px;
+      height:110px;
       border-radius:50%;
       overflow:hidden;
-      border:4px solid color-mix(in srgb, var(--panel-strong) 90%, #fff);
+      border:4px solid var(--panel);
       box-shadow:var(--shadow);
-      flex:0 0 120px;
+      flex:0 0 110px;
       background:#fff;
     }
 
@@ -599,11 +591,29 @@
       font-size:.86rem;
     }
 
-    .mini-map-wrap{
+    .location-grid{
       display:grid;
-      grid-template-columns:1fr 300px;
+      grid-template-columns:1fr 320px;
       gap:18px;
-      align-items:stretch;
+      align-items:start;
+    }
+
+    .location-copy h2{
+      margin:0 0 8px;
+      font-size:clamp(1.7rem,3vw,2.5rem);
+      line-height:1.05;
+    }
+
+    .location-copy p{
+      margin:0;
+      color:var(--muted);
+      max-width:58ch;
+    }
+
+    .location-side{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
     }
 
     .map-frame{
@@ -612,6 +622,7 @@
       min-height:220px;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
+      background:var(--panel);
     }
 
     .map-frame iframe{
@@ -623,37 +634,38 @@
     }
 
     .map-card{
-      border-radius:24px;
-      padding:18px;
+      border-radius:20px;
+      padding:16px;
       display:flex;
-      flex-direction:column;
+      align-items:center;
       justify-content:space-between;
       gap:14px;
     }
 
-    .map-card h3{
-      margin:0 0 8px;
-      font-size:1.1rem;
+    .map-card-text h3{
+      margin:0 0 4px;
+      font-size:1rem;
     }
 
-    .map-card p{
+    .map-card-text p{
       margin:0;
       color:var(--muted);
+      font-size:.94rem;
     }
 
     .mini-map-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:38px;
+      min-height:36px;
       padding:0 14px;
       border-radius:999px;
-      background:var(--panel-strong);
+      background:var(--panel);
       border:1px solid var(--line);
       color:var(--text);
-      font-size:.88rem;
+      font-size:.86rem;
       font-weight:700;
-      width:max-content;
+      white-space:nowrap;
       box-shadow:var(--shadow);
       transition:.2s ease;
     }
@@ -662,7 +674,10 @@
 
     .cta-box{
       border-radius:34px;
-      padding:34px;
+      padding:30px;
+      display:inline-block;
+      max-width:860px;
+      width:100%;
     }
 
     .cta-box h2{
@@ -704,19 +719,19 @@
     }
 
     .float-btn{
-      width:46px;
-      height:46px;
+      width:42px;
+      height:42px;
       border-radius:50%;
       display:grid;
       place-items:center;
       color:#fff;
-      box-shadow:0 12px 24px rgba(0,0,0,.18);
+      box-shadow:0 10px 22px rgba(0,0,0,.16);
       transition:.2s ease;
     }
 
     .float-btn svg{
-      width:22px;
-      height:22px;
+      width:20px;
+      height:20px;
       display:block;
       fill:currentColor;
     }
@@ -732,7 +747,7 @@
     @media (max-width:1080px){
       .hero-grid,
       .benefits-wrap,
-      .mini-map-wrap{
+      .location-grid{
         grid-template-columns:1fr;
       }
 
@@ -747,15 +762,13 @@
       .reviews-grid{
         grid-template-columns:1fr;
       }
+
+      .cta-box{
+        max-width:100%;
+      }
     }
 
     @media (max-width:760px){
-      body{
-        background-attachment:scroll;
-        background-position:center top;
-        background-size:cover;
-      }
-
       .nav{
         min-height:auto;
         padding:14px 0;
@@ -796,7 +809,12 @@
 
       .cta-box,
       .map-card{
-        padding:24px 18px;
+        padding:22px 18px;
+      }
+
+      .map-card{
+        flex-direction:column;
+        align-items:flex-start;
       }
 
       .footer-box{
@@ -810,13 +828,13 @@
       }
 
       .float-btn{
-        width:42px;
-        height:42px;
+        width:40px;
+        height:40px;
       }
 
       .float-btn svg{
-        width:20px;
-        height:20px;
+        width:18px;
+        height:18px;
       }
 
       footer{
@@ -849,7 +867,7 @@
   <main>
     <section class="hero" id="inicio">
       <div class="container hero-grid">
-        <div class="hero-copy glass">
+        <div class="hero-copy panel">
           <div class="eyebrow">Espacio de bienestar y belleza en Córdoba</div>
           <h1>Un lugar para consentirte y verte radiante</h1>
           <p>
@@ -878,7 +896,7 @@
           </div>
         </div>
 
-        <div class="hero-card glass">
+        <div class="hero-card panel">
           <img src="https://iili.io/qfs16T7.jpg" alt="Imagen principal de Shine Estética" />
           <div class="hero-float">
             <strong>Faciales, corporales y belleza integral</strong>
@@ -899,7 +917,7 @@
         </div>
 
         <div class="services-grid">
-          <article class="service-card glass">
+          <article class="service-card panel">
             <div class="service-media">
               <img src="https://iili.io/qfsji11.jpg" alt="Limpieza facial profunda" />
             </div>
@@ -919,7 +937,7 @@
             </div>
           </article>
 
-          <article class="service-card glass">
+          <article class="service-card panel">
             <div class="service-media">
               <img src="https://iili.io/qfsjrXV.jpg" alt="Tratamientos faciales" />
             </div>
@@ -939,7 +957,7 @@
             </div>
           </article>
 
-          <article class="service-card glass">
+          <article class="service-card panel">
             <div class="service-media">
               <img src="https://iili.io/qfL23p1.jpg" alt="Masajes corporales" />
             </div>
@@ -959,7 +977,7 @@
             </div>
           </article>
 
-          <article class="service-card glass">
+          <article class="service-card panel">
             <div class="service-media">
               <img src="https://iili.io/qfsj4LB.jpg" alt="Uñas, cejas y pestañas" />
             </div>
@@ -993,9 +1011,9 @@
         </div>
 
         <div class="benefits-wrap">
-          <div class="benefit-box glass">
+          <div class="benefit-box panel">
             <div class="benefit-grid">
-              <article class="benefit-card glass">
+              <article class="benefit-card panel">
                 <div class="benefit-media">
                   <img src="https://iili.io/qfsOhsp.jpg" alt="Relajación y bienestar" />
                 </div>
@@ -1005,7 +1023,7 @@
                 </div>
               </article>
 
-              <article class="benefit-card glass">
+              <article class="benefit-card panel">
                 <div class="benefit-media">
                   <img src="https://iili.io/qfsOXXR.jpg" alt="Cuidado visible de la piel" />
                 </div>
@@ -1015,7 +1033,7 @@
                 </div>
               </article>
 
-              <article class="benefit-card glass">
+              <article class="benefit-card panel">
                 <div class="benefit-media">
                   <img src="https://iili.io/qfsOwqN.jpg" alt="Imagen más cuidada" />
                 </div>
@@ -1025,7 +1043,7 @@
                 </div>
               </article>
 
-              <article class="benefit-card glass">
+              <article class="benefit-card panel">
                 <div class="benefit-media">
                   <img src="https://iili.io/qfsjrXV.jpg" alt="Atención personalizada" />
                 </div>
@@ -1037,7 +1055,7 @@
             </div>
           </div>
 
-          <div class="benefit-box glass">
+          <div class="benefit-box panel">
             <div class="info-list">
               <div class="info-item">
                 <i>01</i>
@@ -1087,7 +1105,7 @@
         </div>
 
         <div class="gallery-grid">
-          <article class="gallery-card glass">
+          <article class="gallery-card panel">
             <div class="gallery-media">
               <img src="https://iili.io/qfsexBp.jpg" alt="Antes y después de tratamiento facial 1" />
             </div>
@@ -1097,7 +1115,7 @@
             </div>
           </article>
 
-          <article class="gallery-card glass">
+          <article class="gallery-card panel">
             <div class="gallery-media">
               <img src="https://iili.io/qfsebat.jpg" alt="Antes y después de tratamiento facial 2" />
             </div>
@@ -1107,7 +1125,7 @@
             </div>
           </article>
 
-          <article class="gallery-card glass">
+          <article class="gallery-card panel">
             <div class="gallery-media">
               <img src="https://iili.io/qfsezEN.jpg" alt="Antes y después de tratamiento facial 3" />
             </div>
@@ -1117,7 +1135,7 @@
             </div>
           </article>
 
-          <article class="gallery-card glass">
+          <article class="gallery-card panel">
             <div class="gallery-media">
               <img src="https://iili.io/qfsOwqN.jpg" alt="Antes y después de tratamiento estético 4" />
             </div>
@@ -1140,7 +1158,7 @@
         </div>
 
         <div class="reviews-grid">
-          <article class="review-card glass">
+          <article class="review-card panel">
             <div class="review-avatar">
               <img src="https://iili.io/qfLOAZv.png" alt="Reseña de clienta 1" />
             </div>
@@ -1149,7 +1167,7 @@
             <small>Reseña natural de clienta</small>
           </article>
 
-          <article class="review-card glass">
+          <article class="review-card panel">
             <div class="review-avatar">
               <img src="https://iili.io/qfLSeTX.png" alt="Reseña de clienta 2" />
             </div>
@@ -1158,7 +1176,7 @@
             <small>Reseña natural de clienta</small>
           </article>
 
-          <article class="review-card glass">
+          <article class="review-card panel">
             <div class="review-avatar">
               <img src="https://iili.io/qfLOSwb.png" alt="Reseña de clienta 3" />
             </div>
@@ -1172,30 +1190,32 @@
 
     <section id="ubicacion">
       <div class="container">
-        <div class="section-head">
-          <div><h2>Cómo llegar</h2></div>
-          <p>
-            Estamos en Córdoba. Podés ver la ubicación rápida en el mapa y abrirla directamente en Google Maps.
-          </p>
-        </div>
-
-        <div class="mini-map-wrap">
-          <div class="map-frame glass">
-            <iframe
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Av+Colon+5560+Cordoba+Argentina+5000&z=15&output=embed"
-              title="Mapa de ubicación de Shine Estética"
-            ></iframe>
+        <div class="location-grid">
+          <div class="location-copy">
+            <h2>Cómo llegar</h2>
+            <p>
+              Estamos en Córdoba. Podés ver la ubicación rápida en el mapa y abrirla directamente en Google Maps.
+            </p>
           </div>
 
-          <div class="map-card glass">
-            <div>
-              <h3>Shine Estética</h3>
-              <p>Av Colón 5560, Córdoba, Argentina</p>
+          <div class="location-side">
+            <div class="map-frame">
+              <iframe
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Av+Colon+5560+Cordoba+Argentina+5000&z=15&output=embed"
+                title="Mapa de ubicación de Shine Estética"
+              ></iframe>
             </div>
-            <a class="mini-map-btn" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
+
+            <div class="map-card panel">
+              <div class="map-card-text">
+                <h3>Shine Estética</h3>
+                <p>Av Colón 5560, Córdoba, Argentina</p>
+              </div>
+              <a class="mini-map-btn" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1203,7 +1223,7 @@
 
     <section class="cta" id="contacto">
       <div class="container">
-        <div class="cta-box glass">
+        <div class="cta-box panel">
           <h2>Reservá tu turno y regalate un momento para vos</h2>
           <p>
             Si querés consultar por tratamientos, disponibilidad o recibir más información,
