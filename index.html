@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shine Estetica | Tratamientos Faciales y Corporales</title>
+  <title>Shine Estética | Tratamientos Faciales y Corporales</title>
   <meta name="description" content="Tratamientos faciales y corporales, uñas, cejas, pestañas, masajes y depilación en Córdoba. Un espacio pensado para consentirte." />
   <meta name="theme-color" content="#d9c2b5" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Shine Estetica | Tratamientos Faciales y Corporales" />
+  <meta property="og:title" content="Shine Estética | Tratamientos Faciales y Corporales" />
   <meta property="og:description" content="Un lugar para consentirte. Faciales, corporales, uñas, pestañas, cejas, masajes y depilación." />
   <meta property="og:image" content="https://iili.io/qfs16T7.jpg" />
   <meta property="og:url" content="https://espacioshineestetica.onrender.com/" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Shine Estetica | Tratamientos Faciales y Corporales" />
+  <meta name="twitter:title" content="Shine Estética | Tratamientos Faciales y Corporales" />
   <meta name="twitter:description" content="Un lugar para consentirte. Faciales, corporales, uñas, pestañas, cejas, masajes y depilación." />
   <meta name="twitter:image" content="https://iili.io/qfs16T7.jpg" />
 
@@ -344,6 +344,9 @@
       overflow:hidden;
       box-shadow:var(--shadow);
       transition:.25s ease;
+      display:flex;
+      flex-direction:column;
+      height:100%;
     }
 
     .service-card:hover{
@@ -351,28 +354,34 @@
     }
 
     .service-card .media{
-      aspect-ratio: 4 / 4.2;
+      aspect-ratio:4 / 4.25;
       overflow:hidden;
       background:var(--bg-soft);
+      border-bottom:1px solid var(--line);
     }
 
     .service-card .media img{
       width:100%;
       height:100%;
       object-fit:cover;
+      object-position:center;
       transition:transform .45s ease;
     }
 
     .service-card:hover .media img{
-      transform:scale(1.05);
+      transform:scale(1.03);
     }
 
     .service-content{
       padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      flex:1;
     }
 
     .service-content h3{
-      margin:0 0 8px;
+      margin:0;
       font-size:1.1rem;
     }
 
@@ -380,6 +389,54 @@
       margin:0;
       color:var(--muted);
       font-size:.95rem;
+    }
+
+    .service-details{
+      margin-top:auto;
+      border-top:1px solid var(--line);
+      padding-top:12px;
+    }
+
+    .service-details summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:700;
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      user-select:none;
+    }
+
+    .service-details summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .service-details summary::after{
+      content:"+";
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      background:var(--bg-soft);
+      font-size:1rem;
+      flex:0 0 28px;
+    }
+
+    .service-details[open] summary::after{
+      content:"-";
+    }
+
+    .service-details .detail-body{
+      padding-top:12px;
+    }
+
+    .service-details .detail-body p{
+      font-size:.94rem;
+      color:var(--muted);
     }
 
     .benefits-wrap{
@@ -410,7 +467,7 @@
     }
 
     .benefit-card .benefit-media{
-      aspect-ratio: 16 / 10;
+      aspect-ratio:16 / 10;
       overflow:hidden;
       background:var(--bg-soft);
     }
@@ -419,6 +476,7 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      object-position:center;
     }
 
     .benefit-card .benefit-content{
@@ -468,34 +526,45 @@
       gap:14px;
     }
 
-    .gallery-item{
-      position:relative;
+    .gallery-card{
       border-radius:24px;
       overflow:hidden;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
       background:var(--panel);
-      aspect-ratio: 3 / 4;
+      display:flex;
+      flex-direction:column;
+      height:100%;
     }
 
-    .gallery-item img{
+    .gallery-card .gallery-media{
+      aspect-ratio:3 / 4;
+      overflow:hidden;
+      background:var(--bg-soft);
+    }
+
+    .gallery-card .gallery-media img{
       width:100%;
       height:100%;
       object-fit:cover;
+      object-position:center;
     }
 
-    .gallery-item span{
-      position:absolute;
-      left:12px;
-      right:12px;
-      bottom:12px;
-      padding:10px 12px;
-      border-radius:16px;
-      background:color-mix(in srgb, var(--panel) 82%, transparent);
-      backdrop-filter:blur(10px);
-      border:1px solid var(--line);
+    .gallery-card .gallery-content{
+      padding:14px;
+      border-top:1px solid var(--line);
+    }
+
+    .gallery-card .gallery-content strong{
+      display:block;
+      margin:0 0 6px;
+      font-size:.98rem;
+    }
+
+    .gallery-card .gallery-content p{
+      margin:0;
+      color:var(--muted);
       font-size:.92rem;
-      font-weight:600;
     }
 
     .cta{
@@ -645,9 +714,9 @@
   <header class="topbar">
     <div class="container nav">
       <a href="#inicio" class="brand" aria-label="Ir al inicio">
-        <img src="https://iili.io/qfs16T7.jpg" alt="Logo de Shine Estetica" />
+        <img src="https://iili.io/qfs16T7.jpg" alt="Logo de Shine Estética" />
         <div class="brand-text">
-          <strong>Shine Estetica</strong>
+          <strong>Shine Estética</strong>
           <span>Faciales, corporales, uñas, masajes y depilación</span>
         </div>
       </a>
@@ -669,7 +738,7 @@
           <div class="eyebrow">Espacio de bienestar y belleza en Córdoba</div>
           <h1>Un lugar para consentirte y verte radiante</h1>
           <p>
-            En <strong>Shine Estetica</strong> encontrás tratamientos pensados para realzar tu belleza, cuidar tu piel
+            En <strong>Shine Estética</strong> encontrás tratamientos pensados para realzar tu belleza, cuidar tu piel
             y regalarte un momento para vos. Faciales, corporales, uñas, depilación y más, en un ambiente cálido y profesional.
           </p>
 
@@ -696,7 +765,7 @@
 
         <div class="hero-visual">
           <div class="hero-card">
-            <img src="https://iili.io/qfsjrXV.jpg" alt="Tratamiento estético en Shine Estetica" />
+            <img src="https://iili.io/qfs16T7.jpg" alt="Imagen principal de Shine Estética" />
             <div class="hero-float">
               <strong>Faciales, corporales y belleza integral</strong>
               <span>Uñas, cejas, pestañas, masajes y depilación en un solo lugar.</span>
@@ -721,53 +790,89 @@
         <div class="services-grid">
           <article class="service-card">
             <div class="media">
-              <img src="https://freeimage.host/i/qfsj4LB" alt="Limpieza facial profunda" />
+              <img src="https://iili.io/qfsji11.jpg" alt="Limpieza facial profunda" />
             </div>
             <div class="service-content">
               <h3>Limpieza facial profunda</h3>
               <p>
                 Ayuda a remover impurezas, mejorar la textura de la piel y devolverle luminosidad.
-                Ideal para mantener el rostro fresco, limpio y cuidado.
               </p>
+              <details class="service-details">
+                <summary>Ver descripción del servicio</summary>
+                <div class="detail-body">
+                  <p>
+                    Ideal para mantener el rostro fresco, limpio y cuidado. Este servicio ayuda a desobstruir poros,
+                    retirar células muertas y mejorar el aspecto general de la piel, dejando una sensación de limpieza
+                    profunda y mayor suavidad.
+                  </p>
+                </div>
+              </details>
             </div>
           </article>
 
           <article class="service-card">
             <div class="media">
-              <img src="https://freeimage.host/i/qfsjrXV" alt="Tratamiento facial revitalizante" />
+              <img src="https://iili.io/qfsjrXV.jpg" alt="Tratamientos faciales" />
             </div>
             <div class="service-content">
               <h3>Tratamientos faciales</h3>
               <p>
                 Pensados para hidratar, revitalizar y mejorar el aspecto general del rostro.
-                Un servicio perfecto para realzar tu belleza natural.
               </p>
+              <details class="service-details">
+                <summary>Ver descripción del servicio</summary>
+                <div class="detail-body">
+                  <p>
+                    Un servicio perfecto para realzar tu belleza natural. Según la necesidad de tu piel, pueden enfocarse
+                    en hidratación, nutrición, luminosidad y revitalización, ayudando a que el rostro se vea más parejo,
+                    descansado y cuidado.
+                  </p>
+                </div>
+              </details>
             </div>
           </article>
 
           <article class="service-card">
             <div class="media">
-              <img src="https://freeimage.host/i/qfsjPqP" alt="Masajes y bienestar corporal" />
+              <img src="https://iili.io/qfL23p1.jpg" alt="Masajes corporales" />
             </div>
             <div class="service-content">
               <h3>Masajes corporales</h3>
               <p>
-                Favorecen la relajación, alivian tensiones y brindan una experiencia de bienestar
-                que ayuda a desconectar del ritmo diario.
+                Favorecen la relajación, alivian tensiones y brindan una experiencia de bienestar.
               </p>
+              <details class="service-details">
+                <summary>Ver descripción del servicio</summary>
+                <div class="detail-body">
+                  <p>
+                    Son ideales para desconectar del ritmo diario, reducir molestias generadas por tensión y regalarte
+                    un momento de descanso real. Además del bienestar físico, ayudan a bajar un cambio y sentirte mejor
+                    con vos misma.
+                  </p>
+                </div>
+              </details>
             </div>
           </article>
 
           <article class="service-card">
             <div class="media">
-              <img src="https://freeimage.host/i/qfsji11" alt="Belleza de manos y uñas" />
+              <img src="https://iili.io/qfsj4LB.jpg" alt="Uñas, cejas y pestañas" />
             </div>
             <div class="service-content">
               <h3>Uñas, cejas y pestañas</h3>
               <p>
-                Servicios ideales para completar tu look con detalles que marcan la diferencia,
-                resaltando tu imagen con prolijidad y estilo.
+                Servicios ideales para completar tu look con detalles que marcan la diferencia.
               </p>
+              <details class="service-details">
+                <summary>Ver descripción del servicio</summary>
+                <div class="detail-body">
+                  <p>
+                    Pensados para resaltar tu imagen con prolijidad y estilo. Ya sea para lucir manos cuidadas,
+                    una mirada más definida o un acabado más armónico en tu rostro, son detalles que elevan tu
+                    presencia y acompañan tu estética diaria.
+                  </p>
+                </div>
+              </details>
             </div>
           </article>
         </div>
@@ -883,25 +988,45 @@
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="https://iili.io/qfsexBp.jpg" alt="Antes y después de tratamiento facial 1" />
-            <span>Mejora en textura y luminosidad</span>
-          </div>
+          <article class="gallery-card">
+            <div class="gallery-media">
+              <img src="https://iili.io/qfsexBp.jpg" alt="Antes y después de tratamiento facial 1" />
+            </div>
+            <div class="gallery-content">
+              <strong>Mejora en textura y luminosidad</strong>
+              <p>Se aprecia una piel con mejor aspecto visual y una terminación más cuidada.</p>
+            </div>
+          </article>
 
-          <div class="gallery-item">
-            <img src="https://iili.io/qfsebat.jpg" alt="Antes y después de tratamiento facial 2" />
-            <span>Rostro más uniforme y cuidado</span>
-          </div>
+          <article class="gallery-card">
+            <div class="gallery-media">
+              <img src="https://iili.io/qfsebat.jpg" alt="Antes y después de tratamiento facial 2" />
+            </div>
+            <div class="gallery-content">
+              <strong>Rostro más uniforme y cuidado</strong>
+              <p>Un resultado enfocado en realzar la apariencia general sin tapar detalles importantes de la imagen.</p>
+            </div>
+          </article>
 
-          <div class="gallery-item">
-            <img src="https://iili.io/qfsezEN.jpg" alt="Antes y después de tratamiento facial 3" />
-            <span>Cambios visibles con seguimiento</span>
-          </div>
+          <article class="gallery-card">
+            <div class="gallery-media">
+              <img src="https://iili.io/qfsezEN.jpg" alt="Antes y después de tratamiento facial 3" />
+            </div>
+            <div class="gallery-content">
+              <strong>Cambios visibles con seguimiento</strong>
+              <p>La constancia y el tratamiento adecuado ayudan a lograr mejoras progresivas y notorias.</p>
+            </div>
+          </article>
 
-          <div class="gallery-item">
-            <img src="https://iili.io/qfsOwqN.jpg" alt="Antes y después de tratamiento estético 4" />
-            <span>Resultados que acompañan tu bienestar</span>
-          </div>
+          <article class="gallery-card">
+            <div class="gallery-media">
+              <img src="https://iili.io/qfsOwqN.jpg" alt="Antes y después de tratamiento estético 4" />
+            </div>
+            <div class="gallery-content">
+              <strong>Resultados que acompañan tu bienestar</strong>
+              <p>Una imagen más cuidada también se traduce en mayor seguridad y bienestar personal.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -927,13 +1052,12 @@
   <footer>
     <div class="container footer-box">
       <div>
-        © <span id="year"></span> Shine Estetica. Todos los derechos reservados.
+        © <span id="year"></span> Shine Estética. Todos los derechos reservados.
       </div>
       <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer">Creado y diseñado por Ciborg 347</a>
     </div>
   </footer>
 
-  <!-- Reemplaza el numero por el real si queres dejar WhatsApp funcionando -->
   <a
     class="whatsapp-float"
     href="https://wa.me/5490000000000?text=Hola%20Shine%20Estetica,%20quiero%20consultar%20por%20un%20turno."
