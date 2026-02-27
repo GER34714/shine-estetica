@@ -52,7 +52,7 @@
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;height:100%}
     body{
       margin:0;
       min-height:100vh;
@@ -76,7 +76,9 @@
     }
 
     main{
-      flex:1;
+      flex:1 0 auto;
+      display:block;
+      padding-bottom:24px;
     }
 
     .topbar{
@@ -683,7 +685,7 @@
       transition:.2s ease;
     }
 
-    .cta{padding-bottom:60px}
+    .cta{padding-bottom:12px}
 
     .cta-box{
       border-radius:34px;
@@ -706,7 +708,7 @@
     }
 
     footer{
-      margin-top:auto;
+      flex-shrink:0;
       padding:0 0 124px;
     }
 
