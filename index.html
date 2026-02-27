@@ -57,13 +57,18 @@
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(205,178,163,.20), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(182,147,127,.18), transparent 28%),
-        var(--bg);
+        linear-gradient(rgba(247,242,238,.88), rgba(247,242,238,.9)),
+        url("https://iili.io/qfLNJXR.jpg") center/cover fixed no-repeat;
       color:var(--text);
       line-height:1.5;
       overflow-x:hidden;
       transition:background .25s ease, color .25s ease;
+    }
+
+    body.dark{
+      background:
+        linear-gradient(rgba(31,26,24,.84), rgba(31,26,24,.88)),
+        url("https://iili.io/qfLNJXR.jpg") center/cover fixed no-repeat;
     }
 
     img{max-width:100%;display:block}
@@ -75,7 +80,7 @@
       top:0;
       z-index:50;
       backdrop-filter:blur(12px);
-      background:color-mix(in srgb, var(--bg) 80%, transparent);
+      background:color-mix(in srgb, var(--bg) 82%, transparent);
       border-bottom:1px solid var(--line);
     }
 
@@ -157,8 +162,19 @@
       align-items:center;
     }
 
+    .hero-copy,
+    .hero-card,
+    .service-card,
+    .benefit-box,
+    .benefit-card,
+    .gallery-card,
+    .cta-box,
+    .map-card{
+      background:color-mix(in srgb, var(--panel) 92%, transparent);
+      backdrop-filter:blur(10px);
+    }
+
     .hero-copy{
-      background:linear-gradient(180deg, color-mix(in srgb, var(--panel) 94%, transparent), color-mix(in srgb, var(--panel-2) 94%, transparent));
       border:1px solid var(--line);
       border-radius:var(--radius-xl);
       padding:34px;
@@ -233,6 +249,17 @@
 
     .btn:hover{transform:translateY(-2px)}
 
+    .btn-map-mini{
+      min-height:38px;
+      padding:0 14px;
+      font-size:.88rem;
+      font-weight:700;
+      background:var(--panel);
+      border:1px solid var(--line);
+      color:var(--text);
+      box-shadow:var(--shadow);
+    }
+
     .hero-badges{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
@@ -267,7 +294,6 @@
       overflow:hidden;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
-      background:linear-gradient(180deg, var(--panel), var(--panel-2));
       display:flex;
       align-items:center;
       justify-content:center;
@@ -289,7 +315,7 @@
       right:20px;
       bottom:20px;
       padding:16px 18px;
-      background:color-mix(in srgb, var(--panel) 88%, transparent);
+      background:color-mix(in srgb, var(--panel) 90%, transparent);
       border:1px solid var(--line);
       backdrop-filter:blur(10px);
       border-radius:22px;
@@ -337,7 +363,6 @@
     }
 
     .service-card{
-      background:linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--panel-2) 80%, transparent));
       border:1px solid var(--line);
       border-radius:26px;
       overflow:hidden;
@@ -352,7 +377,8 @@
 
     .service-card .media,
     .benefit-card .benefit-media,
-    .gallery-card .gallery-media{
+    .gallery-card .gallery-media,
+    .review-card .review-media{
       background:linear-gradient(180deg, color-mix(in srgb, var(--bg-soft) 65%, #fff), color-mix(in srgb, var(--panel) 80%, transparent));
       display:flex;
       align-items:center;
@@ -376,9 +402,16 @@
       border-bottom:1px solid var(--line);
     }
 
+    .review-card .review-media{
+      aspect-ratio:16 / 11;
+      border-bottom:1px solid var(--line);
+      padding:10px;
+    }
+
     .service-card .media img,
     .benefit-card .benefit-media img,
-    .gallery-card .gallery-media img{
+    .gallery-card .gallery-media img,
+    .review-card .review-media img{
       width:100%;
       height:100%;
       object-fit:contain;
@@ -388,7 +421,8 @@
 
     .service-content,
     .benefit-card .benefit-content,
-    .gallery-card .gallery-content{
+    .gallery-card .gallery-content,
+    .review-card .review-content{
       padding:18px;
     }
 
@@ -400,14 +434,16 @@
     }
 
     .service-content h3,
-    .benefit-card h3{
+    .benefit-card h3,
+    .review-card h3{
       margin:0 0 8px;
       font-size:1.1rem;
     }
 
     .service-content p,
     .benefit-card p,
-    .gallery-card .gallery-content p{
+    .gallery-card .gallery-content p,
+    .review-card .review-content p{
       margin:0;
       color:var(--muted);
       font-size:.95rem;
@@ -458,7 +494,6 @@
     }
 
     .benefit-box{
-      background:linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--panel-2) 82%, transparent));
       border:1px solid var(--line);
       border-radius:28px;
       padding:22px;
@@ -475,7 +510,6 @@
       border:1px solid var(--line);
       border-radius:22px;
       overflow:hidden;
-      background:var(--panel);
       display:flex;
       flex-direction:column;
     }
@@ -525,7 +559,6 @@
       overflow:hidden;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
-      background:var(--panel);
       display:flex;
       flex-direction:column;
       height:100%;
@@ -537,13 +570,72 @@
       font-size:.98rem;
     }
 
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .review-card{
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      height:100%;
+    }
+
+    .review-card .review-content small{
+      display:block;
+      margin-top:10px;
+      color:var(--muted);
+      font-size:.86rem;
+    }
+
+    .mini-map-wrap{
+      display:grid;
+      grid-template-columns:1fr 300px;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .map-card{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .map-card h3{
+      margin:0;
+      font-size:1.1rem;
+    }
+
+    .map-card p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .mini-map{
+      width:100%;
+      border:0;
+      border-radius:18px;
+      min-height:210px;
+      box-shadow:var(--shadow);
+      background:var(--panel);
+    }
+
     .cta{
       padding-bottom:60px;
     }
 
     .cta-box{
       overflow:hidden;
-      background:linear-gradient(135deg, color-mix(in srgb, var(--primary) 36%, var(--panel)), color-mix(in srgb, var(--accent) 55%, var(--panel)));
       border:1px solid var(--line);
       border-radius:34px;
       padding:34px;
@@ -563,7 +655,7 @@
     }
 
     footer{
-      padding:0 0 120px;
+      padding:0 0 140px;
     }
 
     .footer-box{
@@ -582,17 +674,17 @@
 
     .floating-socials{
       position:fixed;
-      right:18px;
-      bottom:18px;
+      right:14px;
+      bottom:78px;
       display:flex;
       flex-direction:column;
-      gap:12px;
+      gap:10px;
       z-index:70;
     }
 
     .float-btn{
-      width:60px;
-      height:60px;
+      width:50px;
+      height:50px;
       border-radius:50%;
       display:grid;
       place-items:center;
@@ -602,7 +694,7 @@
     }
 
     .float-btn:hover{transform:translateY(-3px) scale(1.02)}
-    .float-btn svg{width:30px;height:30px;display:block;fill:currentColor}
+    .float-btn svg{width:24px;height:24px;display:block;fill:currentColor}
 
     .whatsapp-float{
       background:#25D366;
@@ -616,7 +708,8 @@
 
     @media (max-width:1080px){
       .hero-grid,
-      .benefits-wrap{
+      .benefits-wrap,
+      .mini-map-wrap{
         grid-template-columns:1fr;
       }
 
@@ -626,6 +719,10 @@
 
       .gallery-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .reviews-grid{
+        grid-template-columns:1fr;
       }
     }
 
@@ -678,7 +775,8 @@
         flex-direction:column;
       }
 
-      .cta-box{
+      .cta-box,
+      .map-card{
         padding:24px 18px;
       }
 
@@ -688,18 +786,22 @@
       }
 
       .floating-socials{
-        right:14px;
-        bottom:14px;
+        right:12px;
+        bottom:86px;
       }
 
       .float-btn{
-        width:56px;
-        height:56px;
+        width:46px;
+        height:46px;
       }
 
       .float-btn svg{
-        width:28px;
-        height:28px;
+        width:22px;
+        height:22px;
+      }
+
+      footer{
+        padding:0 0 150px;
       }
     }
   </style>
@@ -737,9 +839,7 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">
-              Instagram oficial
-            </a>
+            <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">Instagram oficial</a>
             <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
           </div>
 
@@ -790,9 +890,7 @@
             </div>
             <div class="service-content">
               <h3>Limpieza facial profunda</h3>
-              <p>
-                Ayuda a remover impurezas, mejorar la textura de la piel y devolverle luminosidad.
-              </p>
+              <p>Ayuda a remover impurezas, mejorar la textura de la piel y devolverle luminosidad.</p>
               <details class="service-details">
                 <summary>Ver descripción del servicio</summary>
                 <div class="detail-body">
@@ -812,9 +910,7 @@
             </div>
             <div class="service-content">
               <h3>Tratamientos faciales</h3>
-              <p>
-                Pensados para hidratar, revitalizar y mejorar el aspecto general del rostro.
-              </p>
+              <p>Pensados para hidratar, revitalizar y mejorar el aspecto general del rostro.</p>
               <details class="service-details">
                 <summary>Ver descripción del servicio</summary>
                 <div class="detail-body">
@@ -834,9 +930,7 @@
             </div>
             <div class="service-content">
               <h3>Masajes corporales</h3>
-              <p>
-                Favorecen la relajación, alivian tensiones y brindan una experiencia de bienestar.
-              </p>
+              <p>Favorecen la relajación, alivian tensiones y brindan una experiencia de bienestar.</p>
               <details class="service-details">
                 <summary>Ver descripción del servicio</summary>
                 <div class="detail-body">
@@ -856,9 +950,7 @@
             </div>
             <div class="service-content">
               <h3>Uñas, cejas y pestañas</h3>
-              <p>
-                Servicios ideales para completar tu look con detalles que marcan la diferencia.
-              </p>
+              <p>Servicios ideales para completar tu look con detalles que marcan la diferencia.</p>
               <details class="service-details">
                 <summary>Ver descripción del servicio</summary>
                 <div class="detail-body">
@@ -1027,6 +1119,88 @@
       </div>
     </section>
 
+    <section id="reseñas">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Reseñas reales</h2>
+          </div>
+          <p>
+            Comentarios simples y naturales de personas que pasaron por el espacio y valoraron la atención, la calidez y el cuidado en cada detalle.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-media">
+              <img src="https://iili.io/qfLOAZv.png" alt="Reseña de clienta 1" />
+            </div>
+            <div class="review-content">
+              <h3>Muy linda experiencia</h3>
+              <p>Me sentí cómoda desde el primer momento. El lugar es cálido, me explicaron todo con tranquilidad y me fui contenta con el resultado.</p>
+              <small>Reseña natural de clienta</small>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-media">
+              <img src="https://iili.io/qfLSeTX.png" alt="Reseña de clienta 2" />
+            </div>
+            <div class="review-content">
+              <h3>Atención prolija y amable</h3>
+              <p>Se nota la dedicación en el trabajo. Me gustó que se tomaran el tiempo y que todo fuera muy cuidado, sin apuro y con buena onda.</p>
+              <small>Reseña natural de clienta</small>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-media">
+              <img src="https://iili.io/qfLOSwb.png" alt="Reseña de clienta 3" />
+            </div>
+            <div class="review-content">
+              <h3>Volvería sin dudas</h3>
+              <p>Fui por recomendación y la verdad la pasé muy bien. Me gustó tanto la atención como el ambiente, y eso también suma muchísimo.</p>
+              <small>Reseña natural de clienta</small>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Cómo llegar</h2>
+          </div>
+          <p>
+            Estamos en Córdoba. Podés ver la ubicación rápida en el mapa y abrirla directamente en Google Maps.
+          </p>
+        </div>
+
+        <div class="mini-map-wrap">
+          <div class="map-card">
+            <div>
+              <h3>Shine Estética</h3>
+              <p>Av Colón 5560, Córdoba, Argentina</p>
+            </div>
+            <div class="hero-actions" style="margin:0">
+              <a class="btn btn-map-mini" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
+            </div>
+          </div>
+
+          <iframe
+            class="mini-map"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Av+Colon+5560+Cordoba+Argentina+5000&z=15&output=embed"
+            title="Mapa de ubicación de Shine Estética"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
     <section class="cta" id="contacto">
       <div class="container">
         <div class="cta-box">
@@ -1037,12 +1211,8 @@
           </p>
 
           <div class="hero-actions" style="margin-bottom:0">
-            <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">
-              Escribir por Instagram
-            </a>
-            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">
-              Ver ubicación
-            </a>
+            <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">Escribir por Instagram</a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
           </div>
         </div>
       </div>
