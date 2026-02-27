@@ -20,35 +20,34 @@
 
   <style>
     :root{
-      --bg:#f7f2ee;
-      --bg-soft:#efe4dc;
-      --panel:#fffaf7;
-      --panel-2:#f1e6df;
-      --text:#493d37;
-      --muted:#7a6a61;
-      --line:rgba(92,75,67,.12);
-      --primary:#cdb2a3;
-      --primary-strong:#b6937f;
-      --accent:#e6d2c6;
-      --shadow:0 10px 35px rgba(92,75,67,.10);
-      --radius-xl:28px;
-      --radius-lg:22px;
-      --radius-md:16px;
+      --bg:#f6f0eb;
+      --panel:rgba(255,250,247,.88);
+      --panel-strong:rgba(255,250,247,.96);
+      --soft:#efe3da;
+      --text:#4c3d36;
+      --muted:#7b6a61;
+      --line:rgba(88,70,61,.12);
+      --primary:#c8aa98;
+      --primary-strong:#b8907a;
+      --white:#fff;
+      --shadow:0 12px 34px rgba(80,59,47,.12);
+      --radius-xl:30px;
+      --radius-lg:24px;
+      --radius-md:18px;
       --max:1200px;
     }
 
     body.dark{
-      --bg:#1f1a18;
-      --bg-soft:#2a2320;
-      --panel:#2a2320;
-      --panel-2:#342b27;
-      --text:#f3e7df;
-      --muted:#c8b5a8;
-      --line:rgba(255,255,255,.08);
-      --primary:#bfa190;
-      --primary-strong:#e0c3b1;
-      --accent:#4a3b34;
-      --shadow:0 10px 35px rgba(0,0,0,.28);
+      --bg:#1d1714;
+      --panel:rgba(40,31,27,.82);
+      --panel-strong:rgba(44,35,30,.92);
+      --soft:#332823;
+      --text:#f2e7df;
+      --muted:#ccb8ad;
+      --line:rgba(255,255,255,.09);
+      --primary:#c8a897;
+      --primary-strong:#e0c0ad;
+      --shadow:0 14px 34px rgba(0,0,0,.30);
     }
 
     *{box-sizing:border-box}
@@ -56,40 +55,38 @@
     body{
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        linear-gradient(rgba(247,242,238,.88), rgba(247,242,238,.9)),
-        url("https://iili.io/qfLNJXR.jpg") center/cover fixed no-repeat;
       color:var(--text);
-      line-height:1.5;
+      line-height:1.55;
       overflow-x:hidden;
-      transition:background .25s ease, color .25s ease;
-    }
-
-    body.dark{
-      background:
-        linear-gradient(rgba(31,26,24,.84), rgba(31,26,24,.88)),
-        url("https://iili.io/qfLNJXR.jpg") center/cover fixed no-repeat;
+      background-color:var(--bg);
+      background-image:url("https://iili.io/qfLNJXR.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      transition:background-color .25s ease,color .25s ease;
     }
 
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
+    button{font:inherit}
     .container{width:min(calc(100% - 32px), var(--max));margin-inline:auto}
 
     .topbar{
       position:sticky;
       top:0;
-      z-index:50;
+      z-index:40;
       backdrop-filter:blur(12px);
-      background:color-mix(in srgb, var(--bg) 82%, transparent);
+      background:color-mix(in srgb, var(--panel-strong) 88%, transparent);
       border-bottom:1px solid var(--line);
     }
 
     .nav{
+      min-height:74px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:18px;
-      min-height:74px;
     }
 
     .brand{
@@ -104,9 +101,9 @@
       height:52px;
       border-radius:50%;
       object-fit:cover;
-      border:2px solid rgba(255,255,255,.7);
-      box-shadow:var(--shadow);
+      border:2px solid rgba(255,255,255,.65);
       background:#fff;
+      box-shadow:var(--shadow);
     }
 
     .brand-text{min-width:0}
@@ -115,7 +112,6 @@
       font-size:1rem;
       letter-spacing:.2px;
     }
-
     .brand-text span{
       display:block;
       font-size:.88rem;
@@ -128,33 +124,32 @@
     .nav-links{
       display:flex;
       align-items:center;
-      gap:10px;
       flex-wrap:wrap;
+      gap:10px;
     }
 
     .nav-links a,
     .theme-toggle{
       border:1px solid var(--line);
-      background:var(--panel);
+      background:var(--panel-strong);
       color:var(--text);
       padding:10px 14px;
       border-radius:999px;
-      font-size:.95rem;
-      transition:.2s ease;
-      box-shadow:var(--shadow);
+      font-size:.94rem;
       cursor:pointer;
+      box-shadow:var(--shadow);
+      transition:.2s ease;
     }
 
     .nav-links a:hover,
-    .theme-toggle:hover{
+    .theme-toggle:hover,
+    .btn:hover,
+    .mini-map-btn:hover,
+    .float-btn:hover{
       transform:translateY(-2px);
-      border-color:rgba(182,147,127,.35);
     }
 
-    .hero{
-      padding:42px 0 28px;
-    }
-
+    .hero{padding:42px 0 28px}
     .hero-grid{
       display:grid;
       grid-template-columns:1.1fr .9fr;
@@ -162,23 +157,16 @@
       align-items:center;
     }
 
-    .hero-copy,
-    .hero-card,
-    .service-card,
-    .benefit-box,
-    .benefit-card,
-    .gallery-card,
-    .cta-box,
-    .map-card{
-      background:color-mix(in srgb, var(--panel) 92%, transparent);
-      backdrop-filter:blur(10px);
+    .glass{
+      background:var(--panel);
+      backdrop-filter:blur(12px);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
 
     .hero-copy{
-      border:1px solid var(--line);
       border-radius:var(--radius-xl);
       padding:34px;
-      box-shadow:var(--shadow);
     }
 
     .eyebrow{
@@ -187,7 +175,7 @@
       gap:8px;
       padding:8px 14px;
       border-radius:999px;
-      background:var(--bg-soft);
+      background:var(--soft);
       color:var(--muted);
       border:1px solid var(--line);
       font-size:.9rem;
@@ -196,15 +184,15 @@
 
     .hero h1{
       margin:0 0 14px;
-      font-size:clamp(2rem, 4.6vw, 4.2rem);
+      font-size:clamp(2rem,4.8vw,4.2rem);
       line-height:1;
       letter-spacing:-.03em;
     }
 
     .hero p{
       margin:0 0 22px;
-      font-size:1.06rem;
       color:var(--muted);
+      font-size:1.05rem;
       max-width:60ch;
     }
 
@@ -220,44 +208,31 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      min-height:50px;
+      min-height:48px;
       padding:0 18px;
       border-radius:999px;
       border:1px solid transparent;
       font-weight:700;
-      transition:.22s ease;
       cursor:pointer;
+      transition:.22s ease;
     }
 
     .btn-primary{
-      background:linear-gradient(135deg, var(--primary-strong), var(--primary));
+      background:linear-gradient(135deg,var(--primary-strong),var(--primary));
       color:#fff;
-      box-shadow:0 10px 24px rgba(182,147,127,.32);
-    }
-
-    .btn-instagram{
-      background:linear-gradient(135deg, #f58529, #dd2a7b 45%, #8134af 75%, #515bd4);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(221,42,123,.24);
+      box-shadow:0 10px 24px rgba(182,147,127,.28);
     }
 
     .btn-secondary{
-      background:var(--panel);
+      background:var(--panel-strong);
       border-color:var(--line);
       color:var(--text);
     }
 
-    .btn:hover{transform:translateY(-2px)}
-
-    .btn-map-mini{
-      min-height:38px;
-      padding:0 14px;
-      font-size:.88rem;
-      font-weight:700;
-      background:var(--panel);
-      border:1px solid var(--line);
-      color:var(--text);
-      box-shadow:var(--shadow);
+    .btn-instagram{
+      background:linear-gradient(135deg,#f58529,#dd2a7b 45%,#8134af 78%,#515bd4);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(221,42,123,.22);
     }
 
     .hero-badges{
@@ -267,7 +242,7 @@
     }
 
     .badge{
-      background:var(--panel);
+      background:var(--panel-strong);
       border:1px solid var(--line);
       border-radius:20px;
       padding:14px;
@@ -276,8 +251,8 @@
 
     .badge strong{
       display:block;
-      font-size:1.05rem;
       margin-bottom:4px;
+      font-size:1rem;
     }
 
     .badge span{
@@ -285,25 +260,21 @@
       font-size:.92rem;
     }
 
-    .hero-visual{position:relative}
-
     .hero-card{
       position:relative;
       min-height:520px;
       border-radius:34px;
       overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
+      padding:20px;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:22px;
     }
 
     .hero-card img{
       width:100%;
       height:100%;
-      max-height:476px;
+      max-height:480px;
       object-fit:contain;
       object-position:center center;
       margin:auto;
@@ -315,11 +286,11 @@
       right:20px;
       bottom:20px;
       padding:16px 18px;
-      background:color-mix(in srgb, var(--panel) 90%, transparent);
-      border:1px solid var(--line);
-      backdrop-filter:blur(10px);
       border-radius:22px;
+      background:color-mix(in srgb, var(--panel-strong) 92%, transparent);
+      border:1px solid var(--line);
       box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
     }
 
     .hero-float strong{
@@ -346,7 +317,7 @@
 
     .section-head h2{
       margin:0;
-      font-size:clamp(1.7rem, 3vw, 2.7rem);
+      font-size:clamp(1.7rem,3vw,2.7rem);
       line-height:1.05;
     }
 
@@ -363,11 +334,9 @@
     }
 
     .service-card{
-      border:1px solid var(--line);
       border-radius:26px;
       overflow:hidden;
-      box-shadow:var(--shadow);
-      transition:.25s ease;
+      transition:.24s ease;
       display:flex;
       flex-direction:column;
       height:100%;
@@ -375,75 +344,39 @@
 
     .service-card:hover{transform:translateY(-5px)}
 
-    .service-card .media,
-    .benefit-card .benefit-media,
-    .gallery-card .gallery-media,
-    .review-card .review-media{
-      background:linear-gradient(180deg, color-mix(in srgb, var(--bg-soft) 65%, #fff), color-mix(in srgb, var(--panel) 80%, transparent));
+    .service-media{
+      aspect-ratio:4 / 4.15;
+      padding:12px;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:14px;
+      background:linear-gradient(180deg,color-mix(in srgb,var(--soft) 72%,#fff),color-mix(in srgb,var(--panel-strong) 85%,transparent));
+      border-bottom:1px solid var(--line);
       overflow:hidden;
     }
 
-    .service-card .media{
-      aspect-ratio:4 / 4.2;
-      border-bottom:1px solid var(--line);
-    }
-
-    .benefit-card .benefit-media{
-      aspect-ratio:16 / 10;
-      border-bottom:1px solid var(--line);
-    }
-
-    .gallery-card .gallery-media{
-      aspect-ratio:3 / 4;
-      border-bottom:1px solid var(--line);
-    }
-
-    .review-card .review-media{
-      aspect-ratio:16 / 11;
-      border-bottom:1px solid var(--line);
-      padding:10px;
-    }
-
-    .service-card .media img,
-    .benefit-card .benefit-media img,
-    .gallery-card .gallery-media img,
-    .review-card .review-media img{
+    .service-media img{
       width:100%;
       height:100%;
-      object-fit:contain;
-      object-position:center center;
-      margin:auto;
-    }
-
-    .service-content,
-    .benefit-card .benefit-content,
-    .gallery-card .gallery-content,
-    .review-card .review-content{
-      padding:18px;
+      object-fit:cover;
+      object-position:center;
+      border-radius:18px;
     }
 
     .service-content{
+      padding:18px;
       display:flex;
       flex-direction:column;
       gap:12px;
       flex:1;
     }
 
-    .service-content h3,
-    .benefit-card h3,
-    .review-card h3{
-      margin:0 0 8px;
-      font-size:1.1rem;
+    .service-content h3{
+      margin:0;
+      font-size:1.08rem;
     }
 
-    .service-content p,
-    .benefit-card p,
-    .gallery-card .gallery-content p,
-    .review-card .review-content p{
+    .service-content p{
       margin:0;
       color:var(--muted);
       font-size:.95rem;
@@ -457,13 +390,12 @@
 
     .service-details summary{
       list-style:none;
-      cursor:pointer;
-      font-weight:700;
-      color:var(--text);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:10px;
+      cursor:pointer;
+      font-weight:700;
       user-select:none;
     }
 
@@ -477,13 +409,11 @@
       display:grid;
       place-items:center;
       border:1px solid var(--line);
-      background:var(--bg-soft);
-      font-size:1rem;
+      background:var(--soft);
       flex:0 0 28px;
     }
 
     .service-details[open] summary::after{content:"-"}
-
     .service-details .detail-body{padding-top:12px}
     .service-details .detail-body p{font-size:.94rem}
 
@@ -494,10 +424,8 @@
     }
 
     .benefit-box{
-      border:1px solid var(--line);
       border-radius:28px;
       padding:22px;
-      box-shadow:var(--shadow);
     }
 
     .benefit-grid{
@@ -507,18 +435,42 @@
     }
 
     .benefit-card{
-      border:1px solid var(--line);
       border-radius:22px;
       overflow:hidden;
       display:flex;
       flex-direction:column;
     }
 
-    .benefit-card h3{
+    .benefit-media{
+      aspect-ratio:16 / 10;
+      padding:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,color-mix(in srgb,var(--soft) 72%,#fff),color-mix(in srgb,var(--panel-strong) 85%,transparent));
+      border-bottom:1px solid var(--line);
+    }
+
+    .benefit-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      border-radius:16px;
+    }
+
+    .benefit-content{
+      padding:14px;
+    }
+
+    .benefit-content h3{
+      margin:0 0 6px;
       font-size:1rem;
     }
 
-    .benefit-card p{
+    .benefit-content p{
+      margin:0;
+      color:var(--muted);
       font-size:.92rem;
     }
 
@@ -531,7 +483,7 @@
       display:flex;
       gap:12px;
       align-items:flex-start;
-      background:var(--panel);
+      background:var(--panel-strong);
       border:1px solid var(--line);
       border-radius:18px;
       padding:14px;
@@ -540,12 +492,12 @@
     .info-item i{
       width:34px;
       height:34px;
+      flex:0 0 34px;
       display:grid;
       place-items:center;
       border-radius:50%;
-      background:var(--bg-soft);
+      background:var(--soft);
       font-style:normal;
-      flex:0 0 34px;
     }
 
     .gallery-grid{
@@ -557,17 +509,43 @@
     .gallery-card{
       border-radius:24px;
       overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
       display:flex;
       flex-direction:column;
       height:100%;
     }
 
-    .gallery-card .gallery-content strong{
+    .gallery-media{
+      aspect-ratio:3 / 4;
+      padding:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,color-mix(in srgb,var(--soft) 72%,#fff),color-mix(in srgb,var(--panel-strong) 85%,transparent));
+      border-bottom:1px solid var(--line);
+    }
+
+    .gallery-media img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
+      border-radius:18px;
+    }
+
+    .gallery-content{
+      padding:16px;
+    }
+
+    .gallery-content strong{
       display:block;
-      margin:0 0 6px;
+      margin-bottom:6px;
       font-size:.98rem;
+    }
+
+    .gallery-content p{
+      margin:0;
+      color:var(--muted);
+      font-size:.92rem;
     }
 
     .reviews-grid{
@@ -577,18 +555,46 @@
     }
 
     .review-card{
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
+      border-radius:26px;
+      padding:22px;
+      text-align:center;
       display:flex;
       flex-direction:column;
-      height:100%;
+      align-items:center;
+      gap:14px;
+      min-height:100%;
     }
 
-    .review-card .review-content small{
-      display:block;
-      margin-top:10px;
+    .review-avatar{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      overflow:hidden;
+      border:4px solid color-mix(in srgb, var(--panel-strong) 90%, #fff);
+      box-shadow:var(--shadow);
+      flex:0 0 120px;
+      background:#fff;
+    }
+
+    .review-avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .review-card h3{
+      margin:0;
+      font-size:1.02rem;
+    }
+
+    .review-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .review-card small{
       color:var(--muted);
       font-size:.86rem;
     }
@@ -600,11 +606,25 @@
       align-items:stretch;
     }
 
-    .map-card{
+    .map-frame{
+      border-radius:24px;
+      overflow:hidden;
+      min-height:220px;
       border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .map-frame iframe{
+      width:100%;
+      height:100%;
+      min-height:220px;
+      border:0;
+      display:block;
+    }
+
+    .map-card{
       border-radius:24px;
       padding:18px;
-      box-shadow:var(--shadow);
       display:flex;
       flex-direction:column;
       justify-content:space-between;
@@ -612,7 +632,7 @@
     }
 
     .map-card h3{
-      margin:0;
+      margin:0 0 8px;
       font-size:1.1rem;
     }
 
@@ -621,30 +641,33 @@
       color:var(--muted);
     }
 
-    .mini-map{
-      width:100%;
-      border:0;
-      border-radius:18px;
-      min-height:210px;
+    .mini-map-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:38px;
+      padding:0 14px;
+      border-radius:999px;
+      background:var(--panel-strong);
+      border:1px solid var(--line);
+      color:var(--text);
+      font-size:.88rem;
+      font-weight:700;
+      width:max-content;
       box-shadow:var(--shadow);
-      background:var(--panel);
+      transition:.2s ease;
     }
 
-    .cta{
-      padding-bottom:60px;
-    }
+    .cta{padding-bottom:60px}
 
     .cta-box{
-      overflow:hidden;
-      border:1px solid var(--line);
       border-radius:34px;
       padding:34px;
-      box-shadow:var(--shadow);
     }
 
     .cta-box h2{
       margin:0 0 10px;
-      font-size:clamp(1.8rem, 3vw, 3rem);
+      font-size:clamp(1.8rem,3vw,3rem);
       line-height:1.05;
     }
 
@@ -654,9 +677,7 @@
       max-width:60ch;
     }
 
-    footer{
-      padding:0 0 140px;
-    }
+    footer{padding:0 0 124px}
 
     .footer-box{
       border-top:1px solid var(--line);
@@ -675,35 +696,37 @@
     .floating-socials{
       position:fixed;
       right:14px;
-      bottom:78px;
+      bottom:72px;
+      z-index:35;
       display:flex;
       flex-direction:column;
       gap:10px;
-      z-index:70;
     }
 
     .float-btn{
-      width:50px;
-      height:50px;
+      width:46px;
+      height:46px;
       border-radius:50%;
       display:grid;
       place-items:center;
       color:#fff;
-      transition:transform .2s ease;
-      box-shadow:0 14px 28px rgba(0,0,0,.18);
+      box-shadow:0 12px 24px rgba(0,0,0,.18);
+      transition:.2s ease;
     }
 
-    .float-btn:hover{transform:translateY(-3px) scale(1.02)}
-    .float-btn svg{width:24px;height:24px;display:block;fill:currentColor}
-
-    .whatsapp-float{
-      background:#25D366;
-      box-shadow:0 14px 28px rgba(37,211,102,.34);
+    .float-btn svg{
+      width:22px;
+      height:22px;
+      display:block;
+      fill:currentColor;
     }
 
     .instagram-float{
-      background:linear-gradient(135deg, #f58529, #dd2a7b 45%, #8134af 75%, #515bd4);
-      box-shadow:0 14px 28px rgba(221,42,123,.34);
+      background:linear-gradient(135deg,#f58529,#dd2a7b 45%,#8134af 78%,#515bd4);
+    }
+
+    .whatsapp-float{
+      background:#25D366;
     }
 
     @media (max-width:1080px){
@@ -727,6 +750,12 @@
     }
 
     @media (max-width:760px){
+      body{
+        background-attachment:scroll;
+        background-position:center top;
+        background-size:cover;
+      }
+
       .nav{
         min-height:auto;
         padding:14px 0;
@@ -743,27 +772,17 @@
         display:none;
       }
 
-      .hero{
-        padding-top:24px;
-      }
-
-      .hero-copy{
-        padding:24px 18px;
-      }
-
+      .hero{padding-top:24px}
+      .hero-copy{padding:24px 18px}
       .hero-card{
-        min-height:380px;
-        padding:18px;
+        min-height:390px;
+        padding:16px;
       }
-
       .hero-card img{
-        max-height:300px;
+        max-height:290px;
       }
 
-      .hero-badges{
-        grid-template-columns:1fr;
-      }
-
+      .hero-badges,
       .services-grid,
       .benefit-grid,
       .gallery-grid{
@@ -787,17 +806,17 @@
 
       .floating-socials{
         right:12px;
-        bottom:86px;
+        bottom:88px;
       }
 
       .float-btn{
-        width:46px;
-        height:46px;
+        width:42px;
+        height:42px;
       }
 
       .float-btn svg{
-        width:22px;
-        height:22px;
+        width:20px;
+        height:20px;
       }
 
       footer{
@@ -820,7 +839,7 @@
       <div class="nav-links">
         <a href="#servicios">Servicios</a>
         <a href="#beneficios">Beneficios</a>
-        <a href="#resultados">Resultados</a>
+        <a href="#reseñas">Reseñas</a>
         <a href="#contacto">Contacto</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">Modo oscuro</button>
       </div>
@@ -830,7 +849,7 @@
   <main>
     <section class="hero" id="inicio">
       <div class="container hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy glass">
           <div class="eyebrow">Espacio de bienestar y belleza en Córdoba</div>
           <h1>Un lugar para consentirte y verte radiante</h1>
           <p>
@@ -859,13 +878,11 @@
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="hero-card">
-            <img src="https://iili.io/qfs16T7.jpg" alt="Imagen principal de Shine Estética" />
-            <div class="hero-float">
-              <strong>Faciales, corporales y belleza integral</strong>
-              <span>Uñas, cejas, pestañas, masajes y depilación en un solo lugar.</span>
-            </div>
+        <div class="hero-card glass">
+          <img src="https://iili.io/qfs16T7.jpg" alt="Imagen principal de Shine Estética" />
+          <div class="hero-float">
+            <strong>Faciales, corporales y belleza integral</strong>
+            <span>Uñas, cejas, pestañas, masajes y depilación en un solo lugar.</span>
           </div>
         </div>
       </div>
@@ -874,9 +891,7 @@
     <section id="servicios">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Servicios principales</h2>
-          </div>
+          <div><h2>Servicios principales</h2></div>
           <p>
             Una selección de tratamientos ideales para cuidar tu piel, tu cuerpo y tu imagen,
             combinando estética, relajación y atención profesional.
@@ -884,8 +899,8 @@
         </div>
 
         <div class="services-grid">
-          <article class="service-card">
-            <div class="media">
+          <article class="service-card glass">
+            <div class="service-media">
               <img src="https://iili.io/qfsji11.jpg" alt="Limpieza facial profunda" />
             </div>
             <div class="service-content">
@@ -904,8 +919,8 @@
             </div>
           </article>
 
-          <article class="service-card">
-            <div class="media">
+          <article class="service-card glass">
+            <div class="service-media">
               <img src="https://iili.io/qfsjrXV.jpg" alt="Tratamientos faciales" />
             </div>
             <div class="service-content">
@@ -924,8 +939,8 @@
             </div>
           </article>
 
-          <article class="service-card">
-            <div class="media">
+          <article class="service-card glass">
+            <div class="service-media">
               <img src="https://iili.io/qfL23p1.jpg" alt="Masajes corporales" />
             </div>
             <div class="service-content">
@@ -944,8 +959,8 @@
             </div>
           </article>
 
-          <article class="service-card">
-            <div class="media">
+          <article class="service-card glass">
+            <div class="service-media">
               <img src="https://iili.io/qfsj4LB.jpg" alt="Uñas, cejas y pestañas" />
             </div>
             <div class="service-content">
@@ -970,9 +985,7 @@
     <section id="beneficios">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Beneficios de elegir Shine</h2>
-          </div>
+          <div><h2>Beneficios de elegir Shine</h2></div>
           <p>
             Más que un turno, vivís una experiencia de cuidado personal orientada a que te sientas bien,
             te veas mejor y disfrutes de un momento para vos.
@@ -980,11 +993,11 @@
         </div>
 
         <div class="benefits-wrap">
-          <div class="benefit-box">
+          <div class="benefit-box glass">
             <div class="benefit-grid">
-              <article class="benefit-card">
+              <article class="benefit-card glass">
                 <div class="benefit-media">
-                  <img src="https://iili.io/qfsOhsp.jpg" alt="Beneficio de relajación y bienestar" />
+                  <img src="https://iili.io/qfsOhsp.jpg" alt="Relajación y bienestar" />
                 </div>
                 <div class="benefit-content">
                   <h3>Relajación y bienestar</h3>
@@ -992,9 +1005,9 @@
                 </div>
               </article>
 
-              <article class="benefit-card">
+              <article class="benefit-card glass">
                 <div class="benefit-media">
-                  <img src="https://iili.io/qfsOXXR.jpg" alt="Beneficio de cuidado visible de la piel" />
+                  <img src="https://iili.io/qfsOXXR.jpg" alt="Cuidado visible de la piel" />
                 </div>
                 <div class="benefit-content">
                   <h3>Cuidado visible de la piel</h3>
@@ -1002,9 +1015,9 @@
                 </div>
               </article>
 
-              <article class="benefit-card">
+              <article class="benefit-card glass">
                 <div class="benefit-media">
-                  <img src="https://iili.io/qfsOwqN.jpg" alt="Beneficio de imagen más cuidada" />
+                  <img src="https://iili.io/qfsOwqN.jpg" alt="Imagen más cuidada" />
                 </div>
                 <div class="benefit-content">
                   <h3>Imagen más cuidada</h3>
@@ -1012,9 +1025,9 @@
                 </div>
               </article>
 
-              <article class="benefit-card">
+              <article class="benefit-card glass">
                 <div class="benefit-media">
-                  <img src="https://iili.io/qfsjrXV.jpg" alt="Beneficio de atención personalizada" />
+                  <img src="https://iili.io/qfsjrXV.jpg" alt="Atención personalizada" />
                 </div>
                 <div class="benefit-content">
                   <h3>Atención personalizada</h3>
@@ -1024,7 +1037,7 @@
             </div>
           </div>
 
-          <div class="benefit-box">
+          <div class="benefit-box glass">
             <div class="info-list">
               <div class="info-item">
                 <i>01</i>
@@ -1066,9 +1079,7 @@
     <section id="resultados">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Antes y después</h2>
-          </div>
+          <div><h2>Antes y después</h2></div>
           <p>
             Resultados que reflejan cuidado, constancia y dedicación en cada tratamiento.
             Una muestra del cambio que puede lograrse con el servicio adecuado.
@@ -1076,7 +1087,7 @@
         </div>
 
         <div class="gallery-grid">
-          <article class="gallery-card">
+          <article class="gallery-card glass">
             <div class="gallery-media">
               <img src="https://iili.io/qfsexBp.jpg" alt="Antes y después de tratamiento facial 1" />
             </div>
@@ -1086,7 +1097,7 @@
             </div>
           </article>
 
-          <article class="gallery-card">
+          <article class="gallery-card glass">
             <div class="gallery-media">
               <img src="https://iili.io/qfsebat.jpg" alt="Antes y después de tratamiento facial 2" />
             </div>
@@ -1096,7 +1107,7 @@
             </div>
           </article>
 
-          <article class="gallery-card">
+          <article class="gallery-card glass">
             <div class="gallery-media">
               <img src="https://iili.io/qfsezEN.jpg" alt="Antes y después de tratamiento facial 3" />
             </div>
@@ -1106,7 +1117,7 @@
             </div>
           </article>
 
-          <article class="gallery-card">
+          <article class="gallery-card glass">
             <div class="gallery-media">
               <img src="https://iili.io/qfsOwqN.jpg" alt="Antes y después de tratamiento estético 4" />
             </div>
@@ -1122,46 +1133,38 @@
     <section id="reseñas">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Reseñas reales</h2>
-          </div>
+          <div><h2>Reseñas reales</h2></div>
           <p>
             Comentarios simples y naturales de personas que pasaron por el espacio y valoraron la atención, la calidez y el cuidado en cada detalle.
           </p>
         </div>
 
         <div class="reviews-grid">
-          <article class="review-card">
-            <div class="review-media">
+          <article class="review-card glass">
+            <div class="review-avatar">
               <img src="https://iili.io/qfLOAZv.png" alt="Reseña de clienta 1" />
             </div>
-            <div class="review-content">
-              <h3>Muy linda experiencia</h3>
-              <p>Me sentí cómoda desde el primer momento. El lugar es cálido, me explicaron todo con tranquilidad y me fui contenta con el resultado.</p>
-              <small>Reseña natural de clienta</small>
-            </div>
+            <h3>Muy linda experiencia</h3>
+            <p>Me sentí cómoda desde el primer momento. El lugar es cálido, me explicaron todo con tranquilidad y me fui contenta con el resultado.</p>
+            <small>Reseña natural de clienta</small>
           </article>
 
-          <article class="review-card">
-            <div class="review-media">
+          <article class="review-card glass">
+            <div class="review-avatar">
               <img src="https://iili.io/qfLSeTX.png" alt="Reseña de clienta 2" />
             </div>
-            <div class="review-content">
-              <h3>Atención prolija y amable</h3>
-              <p>Se nota la dedicación en el trabajo. Me gustó que se tomaran el tiempo y que todo fuera muy cuidado, sin apuro y con buena onda.</p>
-              <small>Reseña natural de clienta</small>
-            </div>
+            <h3>Atención prolija y amable</h3>
+            <p>Se nota la dedicación en el trabajo. Me gustó que se tomaran el tiempo y que todo fuera muy cuidado, sin apuro y con buena onda.</p>
+            <small>Reseña natural de clienta</small>
           </article>
 
-          <article class="review-card">
-            <div class="review-media">
+          <article class="review-card glass">
+            <div class="review-avatar">
               <img src="https://iili.io/qfLOSwb.png" alt="Reseña de clienta 3" />
             </div>
-            <div class="review-content">
-              <h3>Volvería sin dudas</h3>
-              <p>Fui por recomendación y la verdad la pasé muy bien. Me gustó tanto la atención como el ambiente, y eso también suma muchísimo.</p>
-              <small>Reseña natural de clienta</small>
-            </div>
+            <h3>Volvería sin dudas</h3>
+            <p>Fui por recomendación y la verdad la pasé muy bien. Me gustó tanto la atención como el ambiente, y eso también suma muchísimo.</p>
+            <small>Reseña natural de clienta</small>
           </article>
         </div>
       </div>
@@ -1170,40 +1173,37 @@
     <section id="ubicacion">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Cómo llegar</h2>
-          </div>
+          <div><h2>Cómo llegar</h2></div>
           <p>
             Estamos en Córdoba. Podés ver la ubicación rápida en el mapa y abrirla directamente en Google Maps.
           </p>
         </div>
 
         <div class="mini-map-wrap">
-          <div class="map-card">
+          <div class="map-frame glass">
+            <iframe
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Av+Colon+5560+Cordoba+Argentina+5000&z=15&output=embed"
+              title="Mapa de ubicación de Shine Estética"
+            ></iframe>
+          </div>
+
+          <div class="map-card glass">
             <div>
               <h3>Shine Estética</h3>
               <p>Av Colón 5560, Córdoba, Argentina</p>
             </div>
-            <div class="hero-actions" style="margin:0">
-              <a class="btn btn-map-mini" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
-            </div>
+            <a class="mini-map-btn" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
           </div>
-
-          <iframe
-            class="mini-map"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Av+Colon+5560+Cordoba+Argentina+5000&z=15&output=embed"
-            title="Mapa de ubicación de Shine Estética"
-          ></iframe>
         </div>
       </div>
     </section>
 
     <section class="cta" id="contacto">
       <div class="container">
-        <div class="cta-box">
+        <div class="cta-box glass">
           <h2>Reservá tu turno y regalate un momento para vos</h2>
           <p>
             Si querés consultar por tratamientos, disponibilidad o recibir más información,
