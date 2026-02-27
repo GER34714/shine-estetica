@@ -35,6 +35,7 @@
       --radius-md:18px;
       --max:1200px;
       --footer-name:#c27f8d;
+      --topbar-h:75px;
     }
 
     body.dark{
@@ -78,7 +79,7 @@
     main{
       flex:1 0 auto;
       display:block;
-      padding-bottom:24px;
+      padding-bottom:6px;
     }
 
     .topbar{
@@ -91,11 +92,12 @@
     }
 
     .nav{
-      min-height:74px;
+      min-height:var(--topbar-h);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:18px;
+      position:relative;
     }
 
     .brand{
@@ -103,6 +105,7 @@
       align-items:center;
       gap:12px;
       min-width:0;
+      flex:1;
     }
 
     .brand img{
@@ -113,6 +116,7 @@
       border:2px solid rgba(255,255,255,.65);
       background:#fff;
       box-shadow:var(--shadow);
+      flex:0 0 52px;
     }
 
     .brand-text{min-width:0}
@@ -130,6 +134,12 @@
       text-overflow:ellipsis;
     }
 
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
     .nav-links{
       display:flex;
       align-items:center;
@@ -138,7 +148,8 @@
     }
 
     .nav-links a,
-    .theme-toggle{
+    .theme-toggle,
+    .menu-toggle{
       border:1px solid var(--line);
       background:var(--panel);
       color:var(--text);
@@ -150,8 +161,27 @@
       transition:.2s ease;
     }
 
+    .menu-toggle{
+      display:none;
+      width:46px;
+      height:46px;
+      padding:0;
+      align-items:center;
+      justify-content:center;
+      border-radius:14px;
+      flex:0 0 46px;
+    }
+
+    .menu-toggle svg{
+      width:22px;
+      height:22px;
+      display:block;
+      stroke:currentColor;
+    }
+
     .nav-links a:hover,
     .theme-toggle:hover,
+    .menu-toggle:hover,
     .btn:hover,
     .mini-map-btn:hover,
     .float-btn:hover{
@@ -685,7 +715,7 @@
       transition:.2s ease;
     }
 
-    .cta{padding-bottom:12px}
+    .cta{padding-bottom:4px}
 
     .cta-box{
       border-radius:34px;
@@ -709,7 +739,8 @@
 
     footer{
       flex-shrink:0;
-      padding:0 0 124px;
+      margin-top:0;
+      padding:0 0 92px;
     }
 
     .footer-box{
@@ -733,7 +764,7 @@
     .floating-socials{
       position:fixed;
       right:14px;
-      bottom:72px;
+      bottom:38px;
       z-index:35;
       display:flex;
       flex-direction:column;
@@ -791,20 +822,66 @@
     }
 
     @media (max-width:760px){
+      :root{
+        --topbar-h:72px;
+      }
+
       .nav{
-        min-height:auto;
-        padding:14px 0;
-        align-items:flex-start;
-        flex-direction:column;
+        min-height:var(--topbar-h);
+      }
+
+      .brand{
+        min-width:0;
+        padding-right:6px;
+      }
+
+      .brand img{
+        width:46px;
+        height:46px;
+        flex:0 0 46px;
+      }
+
+      .brand-text strong{
+        font-size:.98rem;
+      }
+
+      .brand-text span{
+        font-size:.84rem;
+      }
+
+      .nav-right{
+        margin-left:auto;
+      }
+
+      .menu-toggle{
+        display:inline-flex;
       }
 
       .nav-links{
-        width:100%;
-        justify-content:space-between;
+        position:absolute;
+        left:0;
+        right:0;
+        top:calc(100% + 10px);
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+        padding:14px;
+        background:var(--panel);
+        border:1px solid var(--line);
+        border-radius:20px;
+        box-shadow:var(--shadow);
       }
 
-      .nav-links a{
-        display:none;
+      .nav-links.open{
+        display:flex;
+      }
+
+      .nav-links a,
+      .nav-links .theme-toggle{
+        width:100%;
+        text-align:center;
+        justify-content:center;
       }
 
       .hero{padding-top:24px}
@@ -846,7 +923,7 @@
 
       .floating-socials{
         right:12px;
-        bottom:88px;
+        bottom:26px;
       }
 
       .float-btn{
@@ -860,7 +937,11 @@
       }
 
       footer{
-        padding:0 0 150px;
+        padding:0 0 132px;
+      }
+
+      main{
+        padding-bottom:2px;
       }
     }
   </style>
@@ -877,7 +958,17 @@
           </div>
         </a>
 
-        <div class="nav-links">
+        <div class="nav-right">
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+              <path d="M4 7h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 17h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="nav-links" id="mobileMenu">
           <a href="#servicios">Servicios</a>
           <a href="#beneficios">Beneficios</a>
           <a href="#reseñas">Reseñas</a>
@@ -1294,6 +1385,9 @@
     const body = document.body;
     const toggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('shine-theme');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuLinks = mobileMenu.querySelectorAll('a');
 
     if (savedTheme === 'dark') {
       body.classList.add('dark');
@@ -1305,6 +1399,28 @@
       const isDark = body.classList.contains('dark');
       localStorage.setItem('shine-theme', isDark ? 'dark' : 'light');
       toggle.textContent = isDark ? 'Modo claro' : 'Modo oscuro';
+    });
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleMenu() {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 760) {
+        closeMenu();
+      }
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
