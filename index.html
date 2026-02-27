@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shine Estetica | Tratamientos Faciales y Corporales</title>
+  <meta name="description" content="Tratamientos faciales y corporales, uñas, cejas, pestañas, masajes y depilación en Córdoba. Un espacio pensado para consentirte." />
+  <meta name="theme-color" content="#d9c2b5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Shine Estetica | Tratamientos Faciales y Corporales" />
+  <meta property="og:description" content="Un lugar para consentirte. Faciales, corporales, uñas, pestañas, cejas, masajes y depilación." />
+  <meta property="og:image" content="https://iili.io/qfs16T7.jpg" />
+  <meta property="og:url" content="https://espacioshineestetica.onrender.com/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shine Estetica | Tratamientos Faciales y Corporales" />
+  <meta name="twitter:description" content="Un lugar para consentirte. Faciales, corporales, uñas, pestañas, cejas, masajes y depilación." />
+  <meta name="twitter:image" content="https://iili.io/qfs16T7.jpg" />
+
+  <style>
+    :root{
+      --bg:#f7f2ee;
+      --bg-soft:#efe4dc;
+      --panel:#fffaf7;
+      --panel-2:#f1e6df;
+      --text:#493d37;
+      --muted:#7a6a61;
+      --line:rgba(92,75,67,.12);
+      --primary:#cdb2a3;
+      --primary-strong:#b6937f;
+      --accent:#e6d2c6;
+      --shadow:0 10px 35px rgba(92,75,67,.10);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --max:1200px;
+    }
+
+    body.dark{
+      --bg:#1f1a18;
+      --bg-soft:#2a2320;
+      --panel:#2a2320;
+      --panel-2:#342b27;
+      --text:#f3e7df;
+      --muted:#c8b5a8;
+      --line:rgba(255,255,255,.08);
+      --primary:#bfa190;
+      --primary-strong:#e0c3b1;
+      --accent:#4a3b34;
+      --shadow:0 10px 35px rgba(0,0,0,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(205,178,163,.20), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(182,147,127,.18), transparent 28%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.5;
+      overflow-x:hidden;
+      transition:background .25s ease, color .25s ease;
+    }
+
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(calc(100% - 32px), var(--max));margin-inline:auto}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(12px);
+      background:color-mix(in srgb, var(--bg) 80%, transparent);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      min-height:74px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand img{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(255,255,255,.7);
+      box-shadow:var(--shadow);
+      background:#fff;
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:1rem;
+      letter-spacing:.2px;
+    }
+
+    .brand-text span{
+      display:block;
+      font-size:.88rem;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a,
+    .theme-toggle{
+      border:1px solid var(--line);
+      background:var(--panel);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.95rem;
+      transition:.2s ease;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+    }
+
+    .nav-links a:hover,
+    .theme-toggle:hover{
+      transform:translateY(-2px);
+      border-color:rgba(182,147,127,.35);
+    }
+
+    .hero{
+      padding:42px 0 28px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero-copy{
+      background:linear-gradient(180deg, color-mix(in srgb, var(--panel) 94%, transparent), color-mix(in srgb, var(--panel-2) 94%, transparent));
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--bg-soft);
+      color:var(--muted);
+      border:1px solid var(--line);
+      font-size:.9rem;
+      margin-bottom:16px;
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:clamp(2rem, 4.6vw, 4.3rem);
+      line-height:1;
+      letter-spacing:-.03em;
+    }
+
+    .hero p{
+      margin:0 0 22px;
+      font-size:1.06rem;
+      color:var(--muted);
+      max-width:60ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:22px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:50px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:700;
+      transition:.22s ease;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--primary-strong), var(--primary));
+      color:white;
+      box-shadow:0 10px 24px rgba(182,147,127,.32);
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+
+    .btn-secondary{
+      background:var(--panel);
+      border-color:var(--line);
+      color:var(--text);
+    }
+
+    .btn-secondary:hover{transform:translateY(-2px)}
+
+    .hero-badges{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .badge{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:14px;
+      box-shadow:var(--shadow);
+    }
+
+    .badge strong{
+      display:block;
+      font-size:1.05rem;
+      margin-bottom:4px;
+    }
+
+    .badge span{
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:100%;
+    }
+
+    .hero-card{
+      position:relative;
+      height:100%;
+      min-height:520px;
+      border-radius:34px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:var(--panel);
+    }
+
+    .hero-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .hero-float{
+      position:absolute;
+      left:20px;
+      right:20px;
+      bottom:20px;
+      padding:16px 18px;
+      background:color-mix(in srgb, var(--panel) 82%, transparent);
+      border:1px solid var(--line);
+      backdrop-filter:blur(10px);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-float strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:1rem;
+    }
+
+    .hero-float span{
+      display:block;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    section{
+      padding:30px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(1.7rem, 3vw, 2.7rem);
+      line-height:1.05;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:60ch;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .service-card{
+      background:linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--panel-2) 80%, transparent));
+      border:1px solid var(--line);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+
+    .service-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .service-card .media{
+      aspect-ratio: 4 / 4.2;
+      overflow:hidden;
+      background:var(--bg-soft);
+    }
+
+    .service-card .media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .45s ease;
+    }
+
+    .service-card:hover .media img{
+      transform:scale(1.05);
+    }
+
+    .service-content{
+      padding:18px;
+    }
+
+    .service-content h3{
+      margin:0 0 8px;
+      font-size:1.1rem;
+    }
+
+    .service-content p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .benefits-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .benefit-box{
+      background:linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--panel-2) 82%, transparent));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .benefit-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .benefit-card{
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      background:var(--panel);
+    }
+
+    .benefit-card .benefit-media{
+      aspect-ratio: 16 / 10;
+      overflow:hidden;
+      background:var(--bg-soft);
+    }
+
+    .benefit-card .benefit-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .benefit-card .benefit-content{
+      padding:14px;
+    }
+
+    .benefit-card h3{
+      margin:0 0 6px;
+      font-size:1rem;
+    }
+
+    .benefit-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .info-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .info-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+
+    .info-item i{
+      width:34px;
+      height:34px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:var(--bg-soft);
+      font-style:normal;
+      flex:0 0 34px;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .gallery-item{
+      position:relative;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:var(--panel);
+      aspect-ratio: 3 / 4;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .gallery-item span{
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:12px;
+      padding:10px 12px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--panel) 82%, transparent);
+      backdrop-filter:blur(10px);
+      border:1px solid var(--line);
+      font-size:.92rem;
+      font-weight:600;
+    }
+
+    .cta{
+      padding-bottom:60px;
+    }
+
+    .cta-box{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg, color-mix(in srgb, var(--primary) 36%, var(--panel)), color-mix(in srgb, var(--accent) 55%, var(--panel)));
+      border:1px solid var(--line);
+      border-radius:34px;
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-box h2{
+      margin:0 0 10px;
+      font-size:clamp(1.8rem, 3vw, 3rem);
+      line-height:1.05;
+    }
+
+    .cta-box p{
+      margin:0 0 20px;
+      color:var(--muted);
+      max-width:60ch;
+    }
+
+    footer{
+      padding:0 0 110px;
+    }
+
+    .footer-box{
+      border-top:1px solid var(--line);
+      padding-top:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .footer-box a{
+      color:inherit;
+    }
+
+    .whatsapp-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#25D366;
+      color:#fff;
+      box-shadow:0 14px 28px rgba(37,211,102,.34);
+      z-index:70;
+      transition:transform .2s ease;
+    }
+
+    .whatsapp-float:hover{
+      transform:translateY(-3px) scale(1.02);
+    }
+
+    .whatsapp-float svg{
+      width:30px;
+      height:30px;
+      display:block;
+      fill:currentColor;
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,
+      .benefits-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .services-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .gallery-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 760px){
+      .nav{
+        min-height:auto;
+        padding:14px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav-links{
+        width:100%;
+        justify-content:space-between;
+      }
+
+      .nav-links a{
+        display:none;
+      }
+
+      .hero{
+        padding-top:24px;
+      }
+
+      .hero-copy{
+        padding:24px 18px;
+      }
+
+      .hero-card{
+        min-height:380px;
+      }
+
+      .hero-badges{
+        grid-template-columns:1fr;
+      }
+
+      .services-grid,
+      .benefit-grid,
+      .gallery-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-head{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .cta-box{
+        padding:24px 18px;
+      }
+
+      .footer-box{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="Ir al inicio">
+        <img src="https://iili.io/qfs16T7.jpg" alt="Logo de Shine Estetica" />
+        <div class="brand-text">
+          <strong>Shine Estetica</strong>
+          <span>Faciales, corporales, uñas, masajes y depilación</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#contacto">Contacto</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">Modo oscuro</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Espacio de bienestar y belleza en Córdoba</div>
+          <h1>Un lugar para consentirte y verte radiante</h1>
+          <p>
+            En <strong>Shine Estetica</strong> encontrás tratamientos pensados para realzar tu belleza, cuidar tu piel
+            y regalarte un momento para vos. Faciales, corporales, uñas, depilación y más, en un ambiente cálido y profesional.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://instagram.com/espacioshineestetica" target="_blank" rel="noopener noreferrer">Reservar por Instagram</a>
+            <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+          </div>
+
+          <div class="hero-badges">
+            <div class="badge">
+              <strong>Atención personalizada</strong>
+              <span>Cada servicio se adapta a tu necesidad y objetivo.</span>
+            </div>
+            <div class="badge">
+              <strong>Espacio cálido</strong>
+              <span>Una experiencia cómoda, prolija y pensada para relajarte.</span>
+            </div>
+            <div class="badge">
+              <strong>Resultados visibles</strong>
+              <span>Tratamientos enfocados en bienestar y mejora estética real.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <img src="https://iili.io/qfsjrXV.jpg" alt="Tratamiento estético en Shine Estetica" />
+            <div class="hero-float">
+              <strong>Faciales, corporales y belleza integral</strong>
+              <span>Uñas, cejas, pestañas, masajes y depilación en un solo lugar.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Servicios principales</h2>
+          </div>
+          <p>
+            Una selección de tratamientos ideales para cuidar tu piel, tu cuerpo y tu imagen,
+            combinando estética, relajación y atención profesional.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="media">
+              <img src="https://freeimage.host/i/qfsj4LB" alt="Limpieza facial profunda" />
+            </div>
+            <div class="service-content">
+              <h3>Limpieza facial profunda</h3>
+              <p>
+                Ayuda a remover impurezas, mejorar la textura de la piel y devolverle luminosidad.
+                Ideal para mantener el rostro fresco, limpio y cuidado.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="media">
+              <img src="https://freeimage.host/i/qfsjrXV" alt="Tratamiento facial revitalizante" />
+            </div>
+            <div class="service-content">
+              <h3>Tratamientos faciales</h3>
+              <p>
+                Pensados para hidratar, revitalizar y mejorar el aspecto general del rostro.
+                Un servicio perfecto para realzar tu belleza natural.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="media">
+              <img src="https://freeimage.host/i/qfsjPqP" alt="Masajes y bienestar corporal" />
+            </div>
+            <div class="service-content">
+              <h3>Masajes corporales</h3>
+              <p>
+                Favorecen la relajación, alivian tensiones y brindan una experiencia de bienestar
+                que ayuda a desconectar del ritmo diario.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="media">
+              <img src="https://freeimage.host/i/qfsji11" alt="Belleza de manos y uñas" />
+            </div>
+            <div class="service-content">
+              <h3>Uñas, cejas y pestañas</h3>
+              <p>
+                Servicios ideales para completar tu look con detalles que marcan la diferencia,
+                resaltando tu imagen con prolijidad y estilo.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Beneficios de elegir Shine</h2>
+          </div>
+          <p>
+            Más que un turno, vivís una experiencia de cuidado personal orientada a que te sientas bien,
+            te veas mejor y disfrutes de un momento para vos.
+          </p>
+        </div>
+
+        <div class="benefits-wrap">
+          <div class="benefit-box">
+            <div class="benefit-grid">
+              <article class="benefit-card">
+                <div class="benefit-media">
+                  <img src="https://iili.io/qfsOhsp.jpg" alt="Beneficio de relajación y bienestar" />
+                </div>
+                <div class="benefit-content">
+                  <h3>Relajación y bienestar</h3>
+                  <p>Un espacio pensado para bajar un cambio, relajarte y dedicarte tiempo de calidad.</p>
+                </div>
+              </article>
+
+              <article class="benefit-card">
+                <div class="benefit-media">
+                  <img src="https://iili.io/qfsOXXR.jpg" alt="Beneficio de cuidado de la piel" />
+                </div>
+                <div class="benefit-content">
+                  <h3>Cuidado visible de la piel</h3>
+                  <p>Tratamientos que ayudan a mejorar la textura, luminosidad y aspecto general del rostro.</p>
+                </div>
+              </article>
+
+              <article class="benefit-card">
+                <div class="benefit-media">
+                  <img src="https://iili.io/qfsOwqN.jpg" alt="Beneficio de imagen personal" />
+                </div>
+                <div class="benefit-content">
+                  <h3>Imagen más cuidada</h3>
+                  <p>Detalles estéticos que realzan tu presencia y potencian tu seguridad personal.</p>
+                </div>
+              </article>
+
+              <article class="benefit-card">
+                <div class="benefit-media">
+                  <img src="https://iili.io/qfsjrXV.jpg" alt="Beneficio de atención personalizada" />
+                </div>
+                <div class="benefit-content">
+                  <h3>Atención personalizada</h3>
+                  <p>Cada servicio se realiza con dedicación, observando lo que necesitás en cada visita.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="benefit-box">
+            <div class="info-list">
+              <div class="info-item">
+                <i>01</i>
+                <div>
+                  <strong>Ambiente cálido y delicado</strong>
+                  <p style="margin:6px 0 0;color:var(--muted)">Un espacio cómodo, agradable y pensado para que te sientas a gusto desde que llegás.</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <i>02</i>
+                <div>
+                  <strong>Variedad de servicios en un solo lugar</strong>
+                  <p style="margin:6px 0 0;color:var(--muted)">Faciales, corporales, uñas, depilación, cejas, pestañas y masajes para cubrir distintas necesidades.</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <i>03</i>
+                <div>
+                  <strong>Momento para vos</strong>
+                  <p style="margin:6px 0 0;color:var(--muted)">Ideal para cortar con la rutina y regalarte una pausa de autocuidado que también se nota por fuera.</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <i>04</i>
+                <div>
+                  <strong>Ubicación en Córdoba</strong>
+                  <p style="margin:6px 0 0;color:var(--muted)">Atención en Av Colón 5560, Córdoba, Argentina, para que puedas reservar y acercarte fácilmente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultados">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Antes y después</h2>
+          </div>
+          <p>
+            Resultados que reflejan cuidado, constancia y dedicación en cada tratamiento.
+            Una muestra del cambio que puede lograrse con el servicio adecuado.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://iili.io/qfsexBp.jpg" alt="Antes y después de tratamiento facial 1" />
+            <span>Mejora en textura y luminosidad</span>
+          </div>
+
+          <div class="gallery-item">
+            <img src="https://iili.io/qfsebat.jpg" alt="Antes y después de tratamiento facial 2" />
+            <span>Rostro más uniforme y cuidado</span>
+          </div>
+
+          <div class="gallery-item">
+            <img src="https://iili.io/qfsezEN.jpg" alt="Antes y después de tratamiento facial 3" />
+            <span>Cambios visibles con seguimiento</span>
+          </div>
+
+          <div class="gallery-item">
+            <img src="https://iili.io/qfsOwqN.jpg" alt="Antes y después de tratamiento estético 4" />
+            <span>Resultados que acompañan tu bienestar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contacto">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Reservá tu turno y regalate un momento para vos</h2>
+          <p>
+            Si querés consultar por tratamientos, disponibilidad o recibir más información,
+            escribinos y coordinamos tu atención de forma simple y rápida.
+          </p>
+
+          <div class="hero-actions" style="margin-bottom:0">
+            <a class="btn btn-primary" href="https://instagram.com/espacioshineestetica" target="_blank" rel="noopener noreferrer">Escribir por Instagram</a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>
+        © <span id="year"></span> Shine Estetica. Todos los derechos reservados.
+      </div>
+      <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer">Creado y diseñado por Ciborg 347</a>
+    </div>
+  </footer>
+
+  <!-- Reemplaza el numero por el real si queres dejar WhatsApp funcionando -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5490000000000?text=Hola%20Shine%20Estetica,%20quiero%20consultar%20por%20un%20turno."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+    title="WhatsApp"
+  >
+    <svg viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M13.601 2.326A7.854 7.854 0 0 0 8.02.001a7.94 7.94 0 0 0-6.783 12.06L0 16l4.09-1.204A7.95 7.95 0 0 0 8.02 16h.003a7.94 7.94 0 0 0 5.578-13.674zM8.023 14.64a6.6 6.6 0 0 1-3.364-.92l-.241-.142-2.427.715.728-2.365-.157-.243a6.58 6.58 0 0 1-1.017-3.51c.003-3.633 2.96-6.59 6.594-6.59a6.55 6.55 0 0 1 4.664 1.932 6.55 6.55 0 0 1 1.93 4.666c-.002 3.634-2.96 6.592-6.59 6.592zm3.615-4.936c-.198-.1-1.17-.578-1.352-.643-.181-.066-.313-.1-.445.099-.132.198-.511.643-.626.775-.115.132-.231.149-.429.05-.198-.1-.836-.308-1.592-.982-.588-.524-.985-1.172-1.1-1.37-.116-.198-.012-.305.087-.404.09-.09.198-.231.297-.347.099-.116.132-.198.198-.33.066-.132.033-.248-.017-.347-.05-.1-.445-1.074-.61-1.47-.16-.385-.323-.332-.445-.338l-.379-.006a.727.727 0 0 0-.528.247c-.182.198-.693.677-.693 1.65 0 .974.71 1.914.809 2.046.1.132 1.397 2.134 3.385 2.992.473.204.842.326 1.13.417.475.151.907.13 1.248.079.38-.057 1.17-.478 1.336-.94.165-.462.165-.858.115-.94-.05-.083-.181-.132-.379-.231z"/>
+    </svg>
+  </a>
+
+  <script>
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('shine-theme');
+
+    if (savedTheme === 'dark') {
+      body.classList.add('dark');
+      toggle.textContent = 'Modo claro';
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      localStorage.setItem('shine-theme', isDark ? 'dark' : 'light');
+      toggle.textContent = isDark ? 'Modo claro' : 'Modo oscuro';
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
