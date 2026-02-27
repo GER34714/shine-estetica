@@ -7,14 +7,12 @@
   <meta name="description" content="Tratamientos faciales y corporales, uñas, cejas, pestañas, masajes y depilación en Córdoba. Un espacio pensado para consentirte." />
   <meta name="theme-color" content="#d9c2b5" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Shine Estética | Tratamientos Faciales y Corporales" />
   <meta property="og:description" content="Un lugar para consentirte. Faciales, corporales, uñas, pestañas, cejas, masajes y depilación." />
   <meta property="og:image" content="https://iili.io/qfs16T7.jpg" />
   <meta property="og:url" content="https://espacioshineestetica.onrender.com/" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shine Estética | Tratamientos Faciales y Corporales" />
   <meta name="twitter:description" content="Un lugar para consentirte. Faciales, corporales, uñas, pestañas, cejas, masajes y depilación." />
@@ -106,10 +104,7 @@
       background:#fff;
     }
 
-    .brand-text{
-      min-width:0;
-    }
-
+    .brand-text{min-width:0}
     .brand-text strong{
       display:block;
       font-size:1rem;
@@ -185,7 +180,7 @@
 
     .hero h1{
       margin:0 0 14px;
-      font-size:clamp(2rem, 4.6vw, 4.3rem);
+      font-size:clamp(2rem, 4.6vw, 4.2rem);
       line-height:1;
       letter-spacing:-.03em;
     }
@@ -220,11 +215,15 @@
 
     .btn-primary{
       background:linear-gradient(135deg, var(--primary-strong), var(--primary));
-      color:white;
+      color:#fff;
       box-shadow:0 10px 24px rgba(182,147,127,.32);
     }
 
-    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-instagram{
+      background:linear-gradient(135deg, #f58529, #dd2a7b 45%, #8134af 75%, #515bd4);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(221,42,123,.24);
+    }
 
     .btn-secondary{
       background:var(--panel);
@@ -232,7 +231,7 @@
       color:var(--text);
     }
 
-    .btn-secondary:hover{transform:translateY(-2px)}
+    .btn:hover{transform:translateY(-2px)}
 
     .hero-badges{
       display:grid;
@@ -259,27 +258,29 @@
       font-size:.92rem;
     }
 
-    .hero-visual{
-      position:relative;
-      min-height:100%;
-    }
+    .hero-visual{position:relative}
 
     .hero-card{
       position:relative;
-      height:100%;
       min-height:520px;
       border-radius:34px;
       overflow:hidden;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
-      background:var(--panel);
+      background:linear-gradient(180deg, var(--panel), var(--panel-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
     }
 
     .hero-card img{
       width:100%;
       height:100%;
-      object-fit:cover;
-      object-position:center;
+      max-height:476px;
+      object-fit:contain;
+      object-position:center center;
+      margin:auto;
     }
 
     .hero-float{
@@ -288,7 +289,7 @@
       right:20px;
       bottom:20px;
       padding:16px 18px;
-      background:color-mix(in srgb, var(--panel) 82%, transparent);
+      background:color-mix(in srgb, var(--panel) 88%, transparent);
       border:1px solid var(--line);
       backdrop-filter:blur(10px);
       border-radius:22px;
@@ -307,9 +308,7 @@
       font-size:.94rem;
     }
 
-    section{
-      padding:30px 0;
-    }
+    section{padding:30px 0}
 
     .section-head{
       display:flex;
@@ -349,43 +348,66 @@
       height:100%;
     }
 
-    .service-card:hover{
-      transform:translateY(-5px);
+    .service-card:hover{transform:translateY(-5px)}
+
+    .service-card .media,
+    .benefit-card .benefit-media,
+    .gallery-card .gallery-media{
+      background:linear-gradient(180deg, color-mix(in srgb, var(--bg-soft) 65%, #fff), color-mix(in srgb, var(--panel) 80%, transparent));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px;
+      overflow:hidden;
     }
 
     .service-card .media{
-      aspect-ratio:4 / 4.25;
-      overflow:hidden;
-      background:var(--bg-soft);
+      aspect-ratio:4 / 4.2;
       border-bottom:1px solid var(--line);
     }
 
-    .service-card .media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-      transition:transform .45s ease;
+    .benefit-card .benefit-media{
+      aspect-ratio:16 / 10;
+      border-bottom:1px solid var(--line);
     }
 
-    .service-card:hover .media img{
-      transform:scale(1.03);
+    .gallery-card .gallery-media{
+      aspect-ratio:3 / 4;
+      border-bottom:1px solid var(--line);
+    }
+
+    .service-card .media img,
+    .benefit-card .benefit-media img,
+    .gallery-card .gallery-media img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center center;
+      margin:auto;
+    }
+
+    .service-content,
+    .benefit-card .benefit-content,
+    .gallery-card .gallery-content{
+      padding:18px;
     }
 
     .service-content{
-      padding:18px;
       display:flex;
       flex-direction:column;
       gap:12px;
       flex:1;
     }
 
-    .service-content h3{
-      margin:0;
+    .service-content h3,
+    .benefit-card h3{
+      margin:0 0 8px;
       font-size:1.1rem;
     }
 
-    .service-content p{
+    .service-content p,
+    .benefit-card p,
+    .gallery-card .gallery-content p{
       margin:0;
       color:var(--muted);
       font-size:.95rem;
@@ -409,9 +431,7 @@
       user-select:none;
     }
 
-    .service-details summary::-webkit-details-marker{
-      display:none;
-    }
+    .service-details summary::-webkit-details-marker{display:none}
 
     .service-details summary::after{
       content:"+";
@@ -426,18 +446,10 @@
       flex:0 0 28px;
     }
 
-    .service-details[open] summary::after{
-      content:"-";
-    }
+    .service-details[open] summary::after{content:"-"}
 
-    .service-details .detail-body{
-      padding-top:12px;
-    }
-
-    .service-details .detail-body p{
-      font-size:.94rem;
-      color:var(--muted);
-    }
+    .service-details .detail-body{padding-top:12px}
+    .service-details .detail-body p{font-size:.94rem}
 
     .benefits-wrap{
       display:grid;
@@ -464,33 +476,15 @@
       border-radius:22px;
       overflow:hidden;
       background:var(--panel);
-    }
-
-    .benefit-card .benefit-media{
-      aspect-ratio:16 / 10;
-      overflow:hidden;
-      background:var(--bg-soft);
-    }
-
-    .benefit-card .benefit-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-    }
-
-    .benefit-card .benefit-content{
-      padding:14px;
+      display:flex;
+      flex-direction:column;
     }
 
     .benefit-card h3{
-      margin:0 0 6px;
       font-size:1rem;
     }
 
     .benefit-card p{
-      margin:0;
-      color:var(--muted);
       font-size:.92rem;
     }
 
@@ -537,34 +531,10 @@
       height:100%;
     }
 
-    .gallery-card .gallery-media{
-      aspect-ratio:3 / 4;
-      overflow:hidden;
-      background:var(--bg-soft);
-    }
-
-    .gallery-card .gallery-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-    }
-
-    .gallery-card .gallery-content{
-      padding:14px;
-      border-top:1px solid var(--line);
-    }
-
     .gallery-card .gallery-content strong{
       display:block;
       margin:0 0 6px;
       font-size:.98rem;
-    }
-
-    .gallery-card .gallery-content p{
-      margin:0;
-      color:var(--muted);
-      font-size:.92rem;
     }
 
     .cta{
@@ -572,7 +542,6 @@
     }
 
     .cta-box{
-      position:relative;
       overflow:hidden;
       background:linear-gradient(135deg, color-mix(in srgb, var(--primary) 36%, var(--panel)), color-mix(in srgb, var(--accent) 55%, var(--panel)));
       border:1px solid var(--line);
@@ -594,7 +563,7 @@
     }
 
     footer{
-      padding:0 0 110px;
+      padding:0 0 120px;
     }
 
     .footer-box{
@@ -609,38 +578,43 @@
       font-size:.95rem;
     }
 
-    .footer-box a{
-      color:inherit;
-    }
+    .footer-box a{color:inherit}
 
-    .whatsapp-float{
+    .floating-socials{
       position:fixed;
       right:18px;
       bottom:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      z-index:70;
+    }
+
+    .float-btn{
       width:60px;
       height:60px;
       border-radius:50%;
       display:grid;
       place-items:center;
-      background:#25D366;
       color:#fff;
-      box-shadow:0 14px 28px rgba(37,211,102,.34);
-      z-index:70;
       transition:transform .2s ease;
+      box-shadow:0 14px 28px rgba(0,0,0,.18);
     }
 
-    .whatsapp-float:hover{
-      transform:translateY(-3px) scale(1.02);
+    .float-btn:hover{transform:translateY(-3px) scale(1.02)}
+    .float-btn svg{width:30px;height:30px;display:block;fill:currentColor}
+
+    .whatsapp-float{
+      background:#25D366;
+      box-shadow:0 14px 28px rgba(37,211,102,.34);
     }
 
-    .whatsapp-float svg{
-      width:30px;
-      height:30px;
-      display:block;
-      fill:currentColor;
+    .instagram-float{
+      background:linear-gradient(135deg, #f58529, #dd2a7b 45%, #8134af 75%, #515bd4);
+      box-shadow:0 14px 28px rgba(221,42,123,.34);
     }
 
-    @media (max-width: 1080px){
+    @media (max-width:1080px){
       .hero-grid,
       .benefits-wrap{
         grid-template-columns:1fr;
@@ -655,7 +629,7 @@
       }
     }
 
-    @media (max-width: 760px){
+    @media (max-width:760px){
       .nav{
         min-height:auto;
         padding:14px 0;
@@ -682,6 +656,11 @@
 
       .hero-card{
         min-height:380px;
+        padding:18px;
+      }
+
+      .hero-card img{
+        max-height:300px;
       }
 
       .hero-badges{
@@ -706,6 +685,21 @@
       .footer-box{
         flex-direction:column;
         align-items:flex-start;
+      }
+
+      .floating-socials{
+        right:14px;
+        bottom:14px;
+      }
+
+      .float-btn{
+        width:56px;
+        height:56px;
+      }
+
+      .float-btn svg{
+        width:28px;
+        height:28px;
       }
     }
   </style>
@@ -743,7 +737,9 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://instagram.com/espacioshineestetica" target="_blank" rel="noopener noreferrer">Reservar por Instagram</a>
+            <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">
+              Instagram oficial
+            </a>
             <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
           </div>
 
@@ -906,7 +902,7 @@
 
               <article class="benefit-card">
                 <div class="benefit-media">
-                  <img src="https://iili.io/qfsOXXR.jpg" alt="Beneficio de cuidado de la piel" />
+                  <img src="https://iili.io/qfsOXXR.jpg" alt="Beneficio de cuidado visible de la piel" />
                 </div>
                 <div class="benefit-content">
                   <h3>Cuidado visible de la piel</h3>
@@ -916,7 +912,7 @@
 
               <article class="benefit-card">
                 <div class="benefit-media">
-                  <img src="https://iili.io/qfsOwqN.jpg" alt="Beneficio de imagen personal" />
+                  <img src="https://iili.io/qfsOwqN.jpg" alt="Beneficio de imagen más cuidada" />
                 </div>
                 <div class="benefit-content">
                   <h3>Imagen más cuidada</h3>
@@ -1004,7 +1000,7 @@
             </div>
             <div class="gallery-content">
               <strong>Rostro más uniforme y cuidado</strong>
-              <p>Un resultado enfocado en realzar la apariencia general sin tapar detalles importantes de la imagen.</p>
+              <p>Resultado enfocado en realzar la apariencia general sin tapar zonas importantes de la imagen.</p>
             </div>
           </article>
 
@@ -1041,8 +1037,12 @@
           </p>
 
           <div class="hero-actions" style="margin-bottom:0">
-            <a class="btn btn-primary" href="https://instagram.com/espacioshineestetica" target="_blank" rel="noopener noreferrer">Escribir por Instagram</a>
-            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
+            <a class="btn btn-instagram" href="https://www.instagram.com/espacioshineestetica/" target="_blank" rel="noopener noreferrer">
+              Escribir por Instagram
+            </a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Av+Colon+5560+Cordoba+Argentina+5000" target="_blank" rel="noopener noreferrer">
+              Ver ubicación
+            </a>
           </div>
         </div>
       </div>
@@ -1058,18 +1058,33 @@
     </div>
   </footer>
 
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/5490000000000?text=Hola%20Shine%20Estetica,%20quiero%20consultar%20por%20un%20turno."
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="WhatsApp"
-    title="WhatsApp"
-  >
-    <svg viewBox="0 0 16 16" aria-hidden="true">
-      <path d="M13.601 2.326A7.854 7.854 0 0 0 8.02.001a7.94 7.94 0 0 0-6.783 12.06L0 16l4.09-1.204A7.95 7.95 0 0 0 8.02 16h.003a7.94 7.94 0 0 0 5.578-13.674zM8.023 14.64a6.6 6.6 0 0 1-3.364-.92l-.241-.142-2.427.715.728-2.365-.157-.243a6.58 6.58 0 0 1-1.017-3.51c.003-3.633 2.96-6.59 6.594-6.59a6.55 6.55 0 0 1 4.664 1.932 6.55 6.55 0 0 1 1.93 4.666c-.002 3.634-2.96 6.592-6.59 6.592zm3.615-4.936c-.198-.1-1.17-.578-1.352-.643-.181-.066-.313-.1-.445.099-.132.198-.511.643-.626.775-.115.132-.231.149-.429.05-.198-.1-.836-.308-1.592-.982-.588-.524-.985-1.172-1.1-1.37-.116-.198-.012-.305.087-.404.09-.09.198-.231.297-.347.099-.116.132-.198.198-.33.066-.132.033-.248-.017-.347-.05-.1-.445-1.074-.61-1.47-.16-.385-.323-.332-.445-.338l-.379-.006a.727.727 0 0 0-.528.247c-.182.198-.693.677-.693 1.65 0 .974.71 1.914.809 2.046.1.132 1.397 2.134 3.385 2.992.473.204.842.326 1.13.417.475.151.907.13 1.248.079.38-.057 1.17-.478 1.336-.94.165-.462.165-.858.115-.94-.05-.083-.181-.132-.379-.231z"/>
-    </svg>
-  </a>
+  <div class="floating-socials">
+    <a
+      class="float-btn instagram-float"
+      href="https://www.instagram.com/espacioshineestetica/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      title="Instagram"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zm8.9 1.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/>
+      </svg>
+    </a>
+
+    <a
+      class="float-btn whatsapp-float"
+      href="https://wa.me/5490000000000?text=Hola%20Shine%20Estetica,%20quiero%20consultar%20por%20un%20turno."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp"
+      title="WhatsApp"
+    >
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 8.02.001a7.94 7.94 0 0 0-6.783 12.06L0 16l4.09-1.204A7.95 7.95 0 0 0 8.02 16h.003a7.94 7.94 0 0 0 5.578-13.674zM8.023 14.64a6.6 6.6 0 0 1-3.364-.92l-.241-.142-2.427.715.728-2.365-.157-.243a6.58 6.58 0 0 1-1.017-3.51c.003-3.633 2.96-6.59 6.594-6.59a6.55 6.55 0 0 1 4.664 1.932 6.55 6.55 0 0 1 1.93 4.666c-.002 3.634-2.96 6.592-6.59 6.592zm3.615-4.936c-.198-.1-1.17-.578-1.352-.643-.181-.066-.313-.1-.445.099-.132.198-.511.643-.626.775-.115.132-.231.149-.429.05-.198-.1-.836-.308-1.592-.982-.588-.524-.985-1.172-1.1-1.37-.116-.198-.012-.305.087-.404.09-.09.198-.231.297-.347.099-.116.132-.198.198-.33.066-.132.033-.248-.017-.347-.05-.1-.445-1.074-.61-1.47-.16-.385-.323-.332-.445-.338l-.379-.006a.727.727 0 0 0-.528.247c-.182.198-.693.677-.693 1.65 0 .974.71 1.914.809 2.046.1.132 1.397 2.134 3.385 2.992.473.204.842.326 1.13.417.475.151.907.13 1.248.079.38-.057 1.17-.478 1.336-.94.165-.462.165-.858.115-.94-.05-.083-.181-.132-.379-.231z"/>
+      </svg>
+    </a>
+  </div>
 
   <script>
     const body = document.body;
